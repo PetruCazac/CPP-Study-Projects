@@ -6,16 +6,16 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 12:44:08 by pcazac            #+#    #+#              #
-#    Updated: 2023/12/15 23:35:31 by pcazac           ###   ########.fr        #
+#    Updated: 2023/12/17 23:41:38 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	 	= megaphone
+NAME	 	= pPhonebook
 
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC			= megaphone.cpp
+SRC			= Contact.cpp PhoneBook.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 all : $(NAME)
