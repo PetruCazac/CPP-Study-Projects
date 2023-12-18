@@ -6,8 +6,14 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:49 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/17 23:41:51 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/18 13:37:59 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+class PhoneBook{
+	public:
+	
+	private:
+	
+}
