@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 09:49:06 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/20 10:41:56 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/24 17:10:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int	main(int argc, char **argv){
-	std::string command;
-	PhoneBook book;
+int	main(){
+	std::string	command;
 	
-	
-	if (argc != 1){
-		std::cout<< "Wrong call!" << std::endl;
-		return 0;
-	}
 	std::cout << "|------------------------------------------------|"<< std::endl;
 	std::cout << "|          Welcome to your Phonebook             |"<< std::endl;
 	std::cout << "|          You Have Following Commands           |"<< std::endl;
@@ -31,8 +25,16 @@ int	main(int argc, char **argv){
 	std::cout << "|------------------------------------------------|"<< std::endl;
 	std::cout << "|            What do you want to do?             |"<< std::endl;
 	std::cout << "|------------------------------------------------|"<< std::endl;
-	while (command.compare("EXIT") == 0)
+	PhoneBook	book;
+	while (command.compare("EXIT"))
 	{
+		std::getline (std::cin, command);
+		if (!command.compare("ADD"))
+			book.new_contact();
+		// if (!commmand.compare("SEARCH"))
+		// 	book.search(key);
+		if (!command.compare("EXIT"))
+			break;
 		std::cout << "|------------------------------------------------|"<< std::endl;
 		std::cout << "|          You Have Following Commands           |"<< std::endl;
 		std::cout << "|------------------------------------------------|"<< std::endl;
@@ -40,8 +42,9 @@ int	main(int argc, char **argv){
 		std::cout << "|------------------------------------------------|"<< std::endl;
 		std::cout << "|            What do you want to do?             |"<< std::endl;
 		std::cout << "|------------------------------------------------|"<< std::endl;
-		std::getline (std::cin, command);
-		if (command.compare("ADD"))
-			book.new_contact();
 	}
-}
+		std::cout << "|------------------------------------------------|"<< std::endl;
+		std::cout << "|                   Goodbye                      |"<< std::endl;
+		std::cout << "|------------------------------------------------|"<< std::endl;
+	return 0;
+} 
