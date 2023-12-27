@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:49 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/25 18:11:13 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/27 16:11:19 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class PhoneBook{
 		bool	new_contact(void);
 		bool	set_index(void);
 		int		get_index(void);
-		int		get_older_index(void);
 		bool	search_contact(void);
+		std::string get_contacts(void);
+		std::string output_str(std::string str);
 	private:
-		bool _loop;
 		int _index;
-		int _older;
+		int _max;
 		static const int MAX_CONTACTS = 8;
 		Contact _contacts[MAX_CONTACTS];
 };

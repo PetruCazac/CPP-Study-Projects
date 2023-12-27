@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:52 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/25 18:43:08 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/27 16:37:01 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ std::string Contact::get_string(std::string str){
 
 	std::cout << str;
 	std::getline(std::cin, name);
+	if (!name.compare("EXIT"))
+		std::exit(1);
+	while (!name.length()){
+		std::cout << "Wrong input, try again: ";
+		std::getline(std::cin, name);
+		if (!name.compare("EXIT"))
+			std::exit(1);
+	}
 	return name;
 }
 

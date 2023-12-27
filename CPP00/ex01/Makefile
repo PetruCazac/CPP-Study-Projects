@@ -6,7 +6,7 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 12:44:08 by pcazac            #+#    #+#              #
-#    Updated: 2023/12/24 12:54:09 by pcazac           ###   ########.fr        #
+#    Updated: 2023/12/27 11:55:46 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	 	= Phonebook
 CC			= c++
 CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp Contact.cpp PhoneBook.cpp
+SRC			= main.cpp PhoneBook.cpp Contact.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 all : $(NAME)
