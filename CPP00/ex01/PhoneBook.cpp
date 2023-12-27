@@ -6,12 +6,13 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:44:12 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/27 16:27:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/27 21:50:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cstdio>
 #include "PhoneBook.hpp"
 
 int	PhoneBook::get_index(){
@@ -21,7 +22,10 @@ int	PhoneBook::get_index(){
 }
 
 std::string PhoneBook::get_contacts(void){
-	std::string str = std::to_string(this->_max + 1);
+	char temp[2];
+	std::sprintf(temp, "%d", this->_max);
+	// temp[1] = 0;
+	std::string str(temp);
 	return str;
 }
 
@@ -52,7 +56,7 @@ bool	PhoneBook::new_contact(void){
 bool	PhoneBook::search_contact(void){
 	int i = 0;
 	std::string numb;
-	while (_contacts[i].get_first_name().length() != 0)
+	while (i < _max)
 	{
 		std::cout << "| " << i + 1 << " | " <<
 			output_str(_contacts[i].get_first_name()) << " | " <<
@@ -69,7 +73,8 @@ bool	PhoneBook::search_contact(void){
 		if (!numb.compare("EXIT"))
 			return false;
 	}
-	i = std::stoi(numb) - 1;
+	char digit = numb[0];
+	i = digit - '0' - 1;
 	std::cout << "| " << _contacts[i].get_first_name() << " |" << std::endl;
 	std::cout << "| " << _contacts[i].get_last_name() << " |" << std::endl;
 	std::cout << "| " << _contacts[i].get_nickname() << " |" << std::endl;
