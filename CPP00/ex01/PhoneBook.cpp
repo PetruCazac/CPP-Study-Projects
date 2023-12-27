@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:44:12 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/24 19:28:31 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/25 18:43:40 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int	PhoneBook::get_index()
 {
 	int i = this->_index;
-	std::cout << _index << std::endl;
 	set_index();
 	return (i);
 }
@@ -49,6 +48,12 @@ bool	PhoneBook::set_index(){
 bool	PhoneBook::new_contact(void){
 	_contacts[get_index()].new_contact();
 	return true;
+}
+
+bool	PhoneBook::search_contact(void)
+{
+	for (int i = 0; i < 8; i++)
+		std::cout << i << _contacts[i].get_first_name << _contacts[i].get_last_name << _contacts[i].get_nickname;
 }
 
 PhoneBook::PhoneBook(void){

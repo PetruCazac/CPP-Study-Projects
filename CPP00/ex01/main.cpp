@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 09:49:06 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/24 17:10:39 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/25 18:25:18 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(){
 		std::getline (std::cin, command);
 		if (!command.compare("ADD"))
 			book.new_contact();
-		// if (!commmand.compare("SEARCH"))
-		// 	book.search(key);
+		if (!command.compare("SEARCH"))
+			book.search_contact();
 		if (!command.compare("EXIT"))
 			break;
 		std::cout << "|------------------------------------------------|"<< std::endl;

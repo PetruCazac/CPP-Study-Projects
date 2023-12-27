@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:55 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/25 13:36:01 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/25 18:21:10 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Contact {
 		~Contact(void);
 		bool new_contact(void);
 		// bool set_first_name(std::string str);
+		std::string get_string(std::string str);
 		std::string get_first_name(void);
 		std::string get_last_name(void);
 		std::string get_nickname(void);

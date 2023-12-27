@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:52 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/25 13:41:41 by pcazac           ###   ########.fr       */
+/*   Updated: 2023/12/25 18:43:08 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,45 @@
 
 bool Contact::new_contact()
 {
-	_first_name = this->get_first_name();
-	_last_name = this->get_last_name();
-	_nickname = this->get_nickname();
-	_secret = this->get_secret();
-	_phone_nbr = this->get_phone();
+	_first_name = this->get_string("What's the first name:");
+	_last_name = this->get_string("What's the last name:");
+	_nickname = this->get_string("What's the nickname:");
+	_secret = this->get_string("What's the darkest secret:");
+	_phone_nbr = this->get_string("What's the phone:");
 	return (true);
 }
 
-std::string Contact::get_first_name(void){
+std::string Contact::get_string(std::string str){
 	std::string name;
 
-	std::cout << "What's the first name:";
+	std::cout << str;
 	std::getline(std::cin, name);
 	return name;
 }
 
-std::string Contact::get_last_name(void){
-	std::string name;
-
-	std::cout << "What's the last name:";
-	std::getline(std::cin, name);
-	return name;
+std::string Contact::get_first_name(void)
+{
+	return _first_name;
 }
 
-std::string Contact::get_nickname(void){
-	std::string name;
-
-	std::cout << "What's the nickname:";
-	std::getline(std::cin, name);
-	return name;
+std::string Contact::get_last_name(void)
+{
+	return _last_name;
 }
 
-std::string Contact::get_secret(void){
-	std::string name;
-
-	std::cout << "What's the secret:";
-	std::getline(std::cin, name);
-	return name;
+std::string Contact::get_nickname(void)
+{
+	return _nickname;
 }
 
-std::string Contact::get_phone(void){
-	std::string name;
+std::string Contact::get_secret(void)
+{
+	return _secret;
+}
 
-	std::cout << "What's the phone:";
-	std::getline(std::cin, name);
-	return name;
+std::string Contact::get_phone(void)
+{
+	return _phone_nbr;
 }
 
 Contact::Contact(void){
