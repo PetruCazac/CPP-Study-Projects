@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:43:52 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/11 10:56:02 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/16 12:12:40 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	_displayTimestamp( void ){
 	struct tm  *now = std::localtime(&temp);
 
 	std::cout << setfill('0');
-	std::cout << '[' << setw(4) << 
+	std::cout << '[' << setw(4) <<
 	std::cout <<
 }
 void	displayAccountsInfos( void ){
