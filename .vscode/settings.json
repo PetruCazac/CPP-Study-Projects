@@ -73,5 +73,6 @@
 		"numbers": "cpp",
 		"cinttypes": "cpp"
 	},
-	"C_Cpp.errorSquiggles": "enabled"
+	"C_Cpp.errorSquiggles": "enabled",
+	"editor.insertSpaces": false
 }

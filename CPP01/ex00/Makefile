@@ -5,9 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/13 12:44:08 by pcazac            #+#    #+#              #
-#    Updated: 2024/01/17 23:54:50 by pcazac           ###   ########.fr        #
+#    Created: 2024/01/17 23:54:39 by pcazac            #+#    #+#              #
+#    Updated: 2024/01/19 09:46:37 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-cc
+NAME	 	= Zombie
+
+CC			= c++
+CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
+
+SRC			= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+OBJ			= $(SRC:%.cpp=%.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJ)
+
+%.o : %.c
+	@mkdir -p $(@D)
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+clean :
+	rm $(OBJ)
+
+fclean : clean
+	rm $(NAME)
+
+re : fclean all
