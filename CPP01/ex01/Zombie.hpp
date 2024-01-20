@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:02:21 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/19 10:17:54 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/20 23:39:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ class Zombie {
 
 public:
 
-	Zombie(std::string name);
+	Zombie();
 	~Zombie(void);
 	void	announce( void );
+	void	set_name(std::string name);
 
 private:
 
-	const std::string	_name;
+	std::string	_name;
 
 };
 
