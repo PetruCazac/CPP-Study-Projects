@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/13 12:44:08 by pcazac            #+#    #+#              #
-#    Updated: 2024/01/21 11:44:08 by pcazac           ###   ########.fr        #
+#    Created: 2024/01/17 23:54:39 by pcazac            #+#    #+#              #
+#    Updated: 2024/01/21 16:30:33 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	 	= Account
+NAME	 	= Violence
 
 CC			= c++
 CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
-SRC			= tests.cpp Account.cpp
+SRC			= main.cpp  HumanA.cpp  HumanB.cpp  Weapon.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 all : $(NAME)

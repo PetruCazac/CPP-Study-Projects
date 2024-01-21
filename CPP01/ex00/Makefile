@@ -6,11 +6,11 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 23:54:39 by pcazac            #+#    #+#              #
-#    Updated: 2024/01/19 09:46:37 by pcazac           ###   ########.fr        #
+#    Updated: 2024/01/21 11:45:58 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	 	= Zombie
+NAME	 	= Zombie0
 
 CC			= c++
 CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
