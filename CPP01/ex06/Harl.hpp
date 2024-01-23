@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 00:02:09 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/23 01:05:58 by pcazac           ###   ########.fr       */
+/*   Created: 2024/01/22 23:55:50 by pcazac            #+#    #+#             */
+/*   Updated: 2024/01/23 00:33:27 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <fstream>
-#include "Harl.hpp"
 
-int main(int argc, char *argv[]){
-	if (argc != 2){
-		return (std::cerr << "Harl doesn't want to handle this!" << std::endl, 1);
-	}
-	std::string	level = argv[1];
-	Harl	harl;
+#ifndef HARL_HPP
+#define HARL_HPP
 
-	harl.complain(level);
-	return 0;
-}
+class Harl{
+
+public:
+
+	Harl();
+	~Harl();
+	void complain( std::string level );
+	
+private:
+
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
+};
+
+#endif
