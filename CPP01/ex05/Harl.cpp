@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:45:55 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/23 00:59:55 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/23 01:10:42 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void Harl::warning( void ){
 }
 
 void Harl::error( void ){
-	std::cout << "\"Harl goes ahead and flips the table\"";
+	std::cout << "\"Harl goes ahead __attribute__((fallthrough));and flips the table\"";
 	std::cout << std::endl;
 }
 
