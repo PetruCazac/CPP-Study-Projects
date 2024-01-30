@@ -6,11 +6,10 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 09:49:06 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/27 14:32:08 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 14:08:09 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
@@ -26,9 +25,11 @@ int	main(){
 	std::cout << "|         What do you want to do?         |"<< std::endl;
 	std::cout << "|-----------------------------------------|"<< std::endl;
 	PhoneBook	book;
-	while (command.compare("EXIT"))
+	while (true)
 	{
 		std::getline(std::cin, command);
+		if (std::cin.eof())
+			break;
 		if (!command.compare("ADD"))
 			book.new_contact();
 		else if (!command.compare("SEARCH")){

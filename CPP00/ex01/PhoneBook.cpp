@@ -6,13 +6,10 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:44:12 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/16 12:16:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 10:56:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <cstdio>
 #include "PhoneBook.hpp"
 
 int	PhoneBook::get_index(){
@@ -24,7 +21,6 @@ int	PhoneBook::get_index(){
 std::string PhoneBook::get_contacts(void){
 	char temp[2];
 	std::sprintf(temp, "%d", this->_max);
-	// temp[1] = 0;
 	std::string str(temp);
 	return str;
 }
@@ -56,6 +52,8 @@ bool	PhoneBook::new_contact(void){
 bool	PhoneBook::search_contact(void){
 	int i = 0;
 	std::string numb;
+	if(_max == 0)
+		std::cout << "Can't search an empty phonebook..." << std::endl;
 	while (i < _max)
 	{
 		std::cout << "| " << i + 1 << " | " <<
@@ -76,11 +74,11 @@ bool	PhoneBook::search_contact(void){
 	}
 	char digit = numb[0];
 	i = digit - '0' - 1;
-	std::cout << "| " << _contacts[i].get_first_name() << " |" << std::endl;
-	std::cout << "| " << _contacts[i].get_last_name() << " |" << std::endl;
-	std::cout << "| " << _contacts[i].get_nickname() << " |" << std::endl;
-	std::cout << "| " << _contacts[i].get_secret() << " |" << std::endl;
-	std::cout << "| " << _contacts[i].get_phone() << " |" << std::endl;
+	std::cout << "| " << _contacts[i].get_first_name() << std::endl;
+	std::cout << "| " << _contacts[i].get_last_name() << std::endl;
+	std::cout << "| " << _contacts[i].get_nickname() << std::endl;
+	std::cout << "| " << _contacts[i].get_secret() << std::endl;
+	std::cout << "| " << _contacts[i].get_phone() << std::endl;
 	}
 		return true;
 }

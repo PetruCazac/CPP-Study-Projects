@@ -6,13 +6,15 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:41:49 by pcazac            #+#    #+#             */
-/*   Updated: 2023/12/27 16:11:19 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 10:55:52 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
+
 # include "Contact.hpp"
+# include <cstdio>
 
 class PhoneBook{
 	public:
