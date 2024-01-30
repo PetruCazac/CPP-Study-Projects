@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:09:44 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/21 16:09:08 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 15:26:57 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ public:
 	Weapon(std::string weapon);
 	~Weapon();
 
-	const std::string&	getType();
 	void				setType(std::string new_type);
+	const std::string&	getType();
 
 private:
 

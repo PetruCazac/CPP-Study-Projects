@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:45:55 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/23 01:10:42 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 16:01:04 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include "Harl.hpp"
 
 Harl::Harl(void){
-
 }
 
 
 Harl::~Harl(void){
-
 }
 
 void Harl::debug( void ){

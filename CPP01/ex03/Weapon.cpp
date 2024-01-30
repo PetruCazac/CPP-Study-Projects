@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:13:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/21 16:11:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 15:33:30 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ Weapon::Weapon(){
 	return ;
 }
 
-Weapon::Weapon(std::string weapon){
-	this->setType(weapon);
+Weapon::Weapon(std::string weapon): _type(weapon){
 	return ;
 }
 

@@ -6,19 +6,23 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:02:09 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/22 23:37:16 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/30 15:59:00 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-bool	check_input(int argc, std::string filename, std::string to_find, std::string to_replace){
+bool	check_arguments(int argc){
 	if (argc != 4){
-		std::cerr << "Heeeeyyy not enough parameters" << std::endl;
+		std::cerr << "Heeeeyyy not the correct number of parameters" << std::endl;
 		std::cerr << "Usage: <filename> <chars to find> <chars to replace>" << std::endl;
-		return (false);
+		return false;
 	}
+	return true;
+}
+
+bool	check_input(std::string filename, std::string to_find, std::string to_replace){
 	if (filename.empty() == true){
 		std::cerr << "Heeeeyyy there is no file" << std::endl;
 		return (false);
@@ -35,20 +39,27 @@ bool	check_input(int argc, std::string filename, std::string to_find, std::strin
 }
 
 int main(int argc, char *argv[]){
-	std::string filename = argv[1];
-	std::string to_find = argv[2];
-	std::string to_replace = argv[3];
-	if (!check_input(argc, filename, to_find, to_replace))
+	
+	std::string		filename;
+	std::string		to_find;
+	std::string		to_replace;
+	std::ifstream	file;
+	std::ofstream	outfile;
+	
+	if(!check_arguments(argc))
+		return 1;
+	filename = argv[1];
+	to_find = argv[2];
+	to_replace = argv[3];
+	if (!check_input(filename, to_find, to_replace))
 		return (std::cerr<<"ERROR"<< std::endl, 1);
-	std::ifstream file;
 	file.open(filename.c_str());
 	if (!file.is_open())
-		return (std::cerr<<"ERROR"<< std::endl, 1);
-	std::ofstream	outfile;
+		return (std::cerr<<"File could not be read"<< std::endl, 1);
 	const std::string	outfilename = filename + ".replace";
 	outfile.open(outfilename.c_str());
 	if(!outfile.is_open())
-		return 1;
+		return (std::cerr<<"Out file could not be created"<< std::endl, 1);
 	std::string	content((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
 	size_t	i = content.find(to_find);
 	while (i < content.size()){

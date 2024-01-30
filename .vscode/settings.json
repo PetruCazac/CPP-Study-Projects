@@ -72,7 +72,8 @@
 		"iomanip": "cpp",
 		"numbers": "cpp",
 		"cinttypes": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"stack": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 	"editor.insertSpaces": false
