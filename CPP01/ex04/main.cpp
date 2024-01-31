@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:02:09 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/30 15:59:00 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/31 13:24:19 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]){
 		content.erase(i, to_find.size());
 		content.insert(i, to_replace);
 		i += to_replace.size();
-		i = content.find(to_find);
+		i = content.find(to_find, i);
 	}
 	outfile << content;
 	return 0;

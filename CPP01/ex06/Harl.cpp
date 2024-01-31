@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:45:55 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/23 00:35:08 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/01/31 10:19:05 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void Harl::debug( void ){
 }
 
 void Harl::info( void ){
-	std::cout << "Yoou know with a bit of food I could really be more friendly. I could even give you 5 stars on google.";
+	std::cout << "You know with a bit of food I could really be more friendly. I could even give you 5 stars on google.";
 	std::cout << std::endl;
 }
 

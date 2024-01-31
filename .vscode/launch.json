@@ -2,9 +2,8 @@
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
+       
+    {
             "name": "Animal Brain",
             "type": "cppdbg",
             "request": "launch",
@@ -26,6 +25,20 @@
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
                 }
+            ],
+            "configurations": [
+            {
+                "name": "Harly",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "/Users/pcazac/Documents/11.CPP/CPP01/ex06/harlFilter",
+                "args": ["adsfjew[orewreqwkads"],
+                "stopAtEntry": false,
+                "cwd": "/Users/pcazac/Documents/11.CPP/CPP01/ex06",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "lldb"
+            }
             ]
         },
         {
