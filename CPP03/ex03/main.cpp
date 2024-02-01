@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 15:10:23 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 17:10:53 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 int	main(){
 	ClapTrap	trap1("Batman");
 	ClapTrap	trap2("Flash");
-	
+	std::cout << std::endl;
+
 	ScavTrap	trap3("Superman");
 	ScavTrap	trap4("Hulk");
-	
+	std::cout << std::endl;
+
 	FragTrap	trap5("Aquaman");
 	FragTrap	trap6;
+	std::cout << std::endl;
 
 	trap1.attack("Flash");
 	trap2.takeDamage(2);

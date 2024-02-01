@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:30 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/27 13:10:08 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:53:25 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& trap){
 
 void ClapTrap::attack(const std::string& target){
 	if (this->_energy_points && this->_hit_points){
-		std::cout << "ClapTrap " << this->_name << " attacks" << target
+		std::cout << "ClapTrap " << this->_name << " attacks " << target
 				<< " causing " << this->_attack_damage << " points of damage!" << std::endl;
 				this->_energy_points--;}
 	else  if(!this->_energy_points && this->_hit_points){
