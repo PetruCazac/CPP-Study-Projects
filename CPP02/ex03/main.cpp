@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:02:28 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/25 14:19:45 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:10:46 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main( void ) {
 	switch (bsp(a, b, c, point))
 	{
 	case false :
-		std::cout << "There is no way it is in the triangle" << std::endl;
+		std::cout << "There is no way the point is in the triangle" << std::endl;
 		break;
 	case true :
 		std::cout << "The point is indeed in the triangle" << std::endl;
