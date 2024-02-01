@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:49:37 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/29 21:43:13 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 23:01:34 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ public:
 	Dog(const Dog& animal);
 	Dog& operator=(const Dog& animal);
 
-	void makeSound() const;
-	std::string getType() const;
+	std::string* getStringAddress(int i) const;
 	std::string getString(int i) const;
-
 	void	setString(std::string dog_idea, int i);
 
 private:
 
 	std::string	_type;
 	Brain*		_dog_brain;
+	
+	void makeSound() const;
+	std::string getType() const;
 };
 
 #endif

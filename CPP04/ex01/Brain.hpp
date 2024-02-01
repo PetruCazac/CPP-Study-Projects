@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 07:47:54 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/29 18:30:14 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 22:51:35 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ public:
 	Brain(const Brain& brain);
 	Brain& operator=(const Brain& brain);
 	
-	std::string _ideas[100];
+	static const int	_nbIdeas = 100;
+	std::string			_ideas[_nbIdeas];
 };
 
 #endif

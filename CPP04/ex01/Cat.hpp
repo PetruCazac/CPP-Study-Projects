@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:49:35 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/29 22:58:28 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 23:02:41 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ public:
 	Cat& operator=(const Cat& animal);
 
 	// Getter functions
-	void makeSound() const;
-	std::string getType() const;
 	std::string getString(int i) const;
 	std::string* getStringAddress(int i) const;
 	// Setter functions
@@ -38,6 +36,9 @@ private:
 
 	std::string _type;
 	Brain* _cat_brain;
+	
+	void makeSound() const;
+	std::string getType() const;
 };
 
 #endif

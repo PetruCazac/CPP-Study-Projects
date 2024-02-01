@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:49:40 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/29 23:14:22 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/01 22:26:16 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat(){
 
 Cat::~Cat(){
 	std::cout << "Default cat class destructor is destructing." << std::endl;
+	std::cout << "Deleting Cat Brain Class" << std::endl;
 	delete _cat_brain;
 }
 
@@ -30,8 +31,7 @@ Cat::Cat(const Cat& cat) : Animal(cat){
 
 Cat& Cat::operator=(const Cat& cat){
 	std::cout << "Cat class copy assignement operator is copying." << std::endl;
-	delete _cat_brain;
-	_cat_brain = new Brain(*cat._cat_brain);
+	*(this->_cat_brain) = *(cat._cat_brain);
 	_type = cat._type;
 	return *this;
 }
