@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:30 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 15:21:03 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:03:02 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,23 +79,23 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << "ClapTrap " << this->_name << " just cant." << std::endl;}
 }
 
-void ClapTrap::write_hp(){
+void ClapTrap::writeHp(){
 	std::cout << this->_name << " has " << this->_hit_points << " hit points." << std::endl;
 }
-void ClapTrap::write_ep(){
+void ClapTrap::writeEp(){
 	std::cout << this->_name << " has " << this->_energy_points << " energy points." << std::endl;
 }
 
 // Setter functions
-void ClapTrap::set_name(std::string name){
+void ClapTrap::setName(std::string name){
 	std::cout << "The " << _name << " changes it's name to " << name << std::endl;
 	this->_name = name;}
-void ClapTrap::set_hit_points(int i){this->_hit_points = i;}
-void ClapTrap::set_energy_points(int i){this->_energy_points = i;}
-void ClapTrap::set_attack_points(int i){this->_attack_damage = i;}
+void ClapTrap::setHitPoints(int i){this->_hit_points = i;}
+void ClapTrap::setEnergyPoints(int i){this->_energy_points = i;}
+void ClapTrap::setAttackPoints(int i){this->_attack_damage = i;}
 
 // Getter functions
-std::string ClapTrap::get_name(void){return _name;}
-int ClapTrap::get_hit_points(void){return _hit_points;}
-int ClapTrap::get_energy_points(void){return _energy_points;}
-int ClapTrap::get_attack_points(void){return _attack_damage;}
+std::string ClapTrap::getName(void){return _name;}
+int ClapTrap::getHitPoints(void){return _hit_points;}
+int ClapTrap::getEneryPoints(void){return _energy_points;}
+int ClapTrap::getAttackPoints(void){return _attack_damage;}

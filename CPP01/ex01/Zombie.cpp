@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:04:56 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/30 15:16:35 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:00:28 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void Zombie::announce(){
 	return ;
 }
 
-void Zombie::set_name(std::string name){
+void Zombie::setName(std::string name){
 	_name = name;
 	std::cout << _name << std::endl;
 	return ;

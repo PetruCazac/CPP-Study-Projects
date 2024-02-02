@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:29 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/27 13:12:15 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:38:34 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ public:
 	ClapTrap(const ClapTrap& trap);
 	ClapTrap&	operator=(const ClapTrap& trap);
 
-
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	void writeHp();
+	void writeEp();
 
-
-	void write_hp();
-	void write_ep();
 private:
 
 	std::string	_name;

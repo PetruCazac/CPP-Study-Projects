@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:30 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/01 15:53:25 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 10:59:42 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << "ClapTrap " << this->_name << " just cant." << std::endl;}
 }
 
-void ClapTrap::write_hp(){
+void ClapTrap::writeHp(){
 	std::cout << this->_name << " has " << this->_hit_points << " hit points." << std::endl;
 }
-void ClapTrap::write_ep(){
+void ClapTrap::writeEp(){
 	std::cout << this->_name << " has " << this->_energy_points << " energy points." << std::endl;
 }

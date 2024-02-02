@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:29 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 12:03:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:03:02 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ public:
 	void beRepaired(unsigned int amount);
 
 
-	void write_hp();
-	void write_ep();
+	void writeHp();
+	void writeEp();
 
 	// Setter functions
-	void set_name(std::string name);
-	void set_hit_points(int i);
-	void set_energy_points(int i);
-	void set_attack_points(int i);
+	void setName(std::string name);
+	void setHitPoints(int i);
+	void setEnergyPoints(int i);
+	void setAttackPoints(int i);
 
 	// Getter functions
-	std::string get_name(void);
-	int get_hit_points(void);
-	int get_energy_points(void);
-	int get_attack_points(void);
+	std::string getName(void);
+	int getHitPoints(void);
+	int getEneryPoints(void);
+	int getAttackPoints(void);
 
 protected:
 

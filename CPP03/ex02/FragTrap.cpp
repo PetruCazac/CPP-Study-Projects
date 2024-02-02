@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:52:40 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/27 16:27:20 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:01:37 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 FragTrap::FragTrap(): ClapTrap(){
 	std::cout << "FragTrap default_frag is constructing." << std::endl;
-	this->set_name("default_frag");
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_points(30);
+	this->setName("default_frag");
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackPoints(30);
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
 	std::cout << "FragTrap " << name << " is constructing." << std::endl;
-	this->set_name(name);
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_points(30);
+	this->setName(name);
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackPoints(30);
 }
 
 FragTrap::~FragTrap(){

@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 12:43:33 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/27 16:28:09 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:01:37 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 ScavTrap::ScavTrap(){
 	std::cout << "ScavTrap default_scav is constructing." << std::endl;
-	this->set_name("default_scav");
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_points(20);
+	this->setName("default_scav");
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackPoints(20);
 	this->guarding = false;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	std::cout << "ScavTrap " << name << " is constructing." << std::endl;
-	this->set_name(name);
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_points(20);
+	this->setName(name);
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackPoints(20);
 	this->guarding = false;
 }
 

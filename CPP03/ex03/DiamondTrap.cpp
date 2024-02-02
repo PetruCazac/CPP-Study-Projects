@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:56:05 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 15:21:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 11:00:28 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void DiamondTrap::whoAmI(){
 	std::cout << "My ClapTrap name is " << ClapTrap::_name << std::endl;
 }
 
-void DiamondTrap::set_name(std::string name){
+void DiamondTrap::setName(std::string name){
 	std::cout << "The " << _name << " changes it's name to " << name << std::endl;
 	this->_name = name;
-	ClapTrap::set_name(name + "_clap_name");
+	ClapTrap::setName(name + "_clap_name");
 }

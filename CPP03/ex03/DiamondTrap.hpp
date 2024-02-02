@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:56:03 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 15:01:53 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/02 14:55:49 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ public:
 	~DiamondTrap();
 
 	void attack(const std::string& target);
+	void setName(std::string name);
 	void whoAmI();
-	void set_name(std::string name);
 
 private:
 	std::string _name;
