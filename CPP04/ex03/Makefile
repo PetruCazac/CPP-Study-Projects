@@ -6,7 +6,7 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 16:13:00 by pcazac            #+#    #+#              #
-#    Updated: 2024/02/02 09:30:18 by pcazac           ###   ########.fr        #
+#    Updated: 2024/02/03 14:32:56 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME	 	= ex02
 CC			= c++
 CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp\
-				Brain.cpp
+SRC			= AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 all : $(NAME)

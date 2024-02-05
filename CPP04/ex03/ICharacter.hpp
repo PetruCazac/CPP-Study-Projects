@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/04 15:22:00 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/04 15:49:53 by pcazac           ###   ########.fr       */
+/*   Created: 2024/02/03 14:51:13 by pcazac            #+#    #+#             */
+/*   Updated: 2024/02/03 14:52:24 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <iostream>
 #include "AMateria.hpp"
 
-class Cure : public AMateria{
-protected:
-
+class ICharacter
+{
 public:
-
-	Cure(std::string const & type);
-	Cure(const Cure& Cure);
-	Cure& operator=(const Cure& Cure);
-	~Cure();
-
-	Cure* clone() const = 0;
-	void use(ICharacter& target);
+virtual ~ICharacter() {}
+virtual std::string const & getName() const = 0;
+virtual void equip(AMateria* m) = 0;
+virtual void unequip(int idx) = 0;
+virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif
