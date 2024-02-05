@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/03 14:50:50 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/05 16:32:46 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include "AMateria.hpp"
 
-class IMateriaSource
-{
+class IMateriaSource{
 public:
 	virtual ~IMateriaSource() {}
 	virtual void learnMateria(AMateria*) = 0;

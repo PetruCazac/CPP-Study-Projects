@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:38 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/04 15:37:06 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/05 16:32:34 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 #define AMATERIA_HPP
 
 #include <iostream>
+#include <string>
 #include "ICharacter.hpp"
 
 class AMateria
 {
 protected:
-	const std::string _type;
-	const std::string _name;
+	std::string _type;
 
 public:
-
 	AMateria(std::string const & type);
 	AMateria(const AMateria& amateria);
 	AMateria& operator=(const AMateria& amateria);

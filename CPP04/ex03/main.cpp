@@ -6,11 +6,15 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/04 16:24:50 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/05 16:35:33 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <iostream>
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
