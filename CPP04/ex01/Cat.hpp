@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:49:35 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/01 23:02:41 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:42:54 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 
 private:
 
-	std::string _type;
+	// std::string _type;
 	Brain* _cat_brain;
 	
 	void makeSound() const;

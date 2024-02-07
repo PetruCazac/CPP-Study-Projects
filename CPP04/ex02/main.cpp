@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/02 09:37:03 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 15:03:30 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,33 +53,33 @@ void	cat_hard_copy_test(){
 	}
 }
 
-void	dog_hard_copy_test(){
-	Dog	tom;
-	Dog	grumpy = Dog(tom);
-	int		nbIdeas = 10;
+// void	dog_hard_copy_test(){
+// 	Dog	tom;
+// 	Dog	grumpy = Dog(tom);
+// 	int		nbIdeas = 10;
 
-	std::cout << "Copying" << std::endl;
-	tom = grumpy;
-	for(int i = 0; i < nbIdeas; i++){
-		tom.setString(to_string(i), i);
-	}
-	for(int i = 0; i < nbIdeas; i++){
-		std::cout << "First cat ate " << tom.getString(i) << " Bones" << std::endl;
-		std::cout << "Second cat ate " <<  grumpy.getString(i) << " Bones" << std::endl;
-	}
-	for(int i = 0; i < nbIdeas; i++){
-		std::cout << "First  cat address " << tom.getStringAddress(i) << std::endl;
-		std::cout << "Second cat address " <<  grumpy.getStringAddress(i) << std::endl;
-	}
-	grumpy = tom;
-	for(int i = 0; i < nbIdeas; i++){
-		std::cout << "Second cat ate " <<  grumpy.getString(i) << " Bones" << std::endl;
-	}
-	for(int i = 0; i < nbIdeas; i++){
-		std::cout << "First  cat address " << tom.getStringAddress(i) << std::endl;
-		std::cout << "Second cat address " <<  grumpy.getStringAddress(i) << std::endl;
-	}
-}
+// 	std::cout << "Copying" << std::endl;
+// 	tom = grumpy;
+// 	for(int i = 0; i < nbIdeas; i++){
+// 		tom.setString(to_string(i), i);
+// 	}
+// 	for(int i = 0; i < nbIdeas; i++){
+// 		std::cout << "First cat ate " << tom.getString(i) << " Bones" << std::endl;
+// 		std::cout << "Second cat ate " <<  grumpy.getString(i) << " Bones" << std::endl;
+// 	}
+// 	for(int i = 0; i < nbIdeas; i++){
+// 		std::cout << "First  cat address " << tom.getStringAddress(i) << std::endl;
+// 		std::cout << "Second cat address " <<  grumpy.getStringAddress(i) << std::endl;
+// 	}
+// 	grumpy = tom;
+// 	for(int i = 0; i < nbIdeas; i++){
+// 		std::cout << "Second cat ate " <<  grumpy.getString(i) << " Bones" << std::endl;
+// 	}
+// 	for(int i = 0; i < nbIdeas; i++){
+// 		std::cout << "First  cat address " << tom.getStringAddress(i) << std::endl;
+// 		std::cout << "Second cat address " <<  grumpy.getStringAddress(i) << std::endl;
+// 	}
+// }
 
 void	deepCopy_test(){
 	Dog	dog;
@@ -118,8 +118,8 @@ int main()
 
 	cat_hard_copy_test();
 	std::cout << std::endl;
-	dog_hard_copy_test();
-	std::cout << std::endl;
+	// dog_hard_copy_test();
+	// std::cout << std::endl;
 	deepCopy_test();
 	std::cout << std::endl;
 	subject_test();

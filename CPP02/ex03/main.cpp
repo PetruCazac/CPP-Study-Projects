@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:02:28 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/01 15:10:46 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 19:32:10 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "Point.hpp"
 
 int main( void ) {
-	Point const a(0, 0);
+	Point const a(-5, 0);
 	Point const b(4,0);
 	Point const c(3,4);
 	// Point const point(4, 4);
 	// Point const point(2, 2);
 	// Point const point(3, 3);
-	Point const point(3, 3.999);
+	Point const point(2 , 2);
 	// Point const point(1, 0.1);
 
 	switch (bsp(a, b, c, point))

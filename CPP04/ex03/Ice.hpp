@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:38 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/04 15:49:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 14:58:51 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 class Ice : public AMateria{
-protected:
 
 public:
 
+	Ice();
 	Ice(std::string const & type);
 	Ice(const Ice& Ice);
-	Ice& operator=(const Ice& Ice);
+	Ice& operator=(const Ice&);
 	~Ice();
 
-	Ice* clone() const = 0;
+	Ice* clone() const;
 	void use(ICharacter& target);
-
 };
 
 #endif

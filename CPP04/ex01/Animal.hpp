@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:41:08 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/01 23:02:46 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:43:35 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Animal& operator=(const Animal& animal);
 
 
-private:
+protected:
 
 	virtual void makeSound() const;
 	virtual std::string getType() const;

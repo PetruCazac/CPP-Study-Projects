@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 22:33:38 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 22:39:28 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:43:54 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ public:
 
 	void makeSound() const;
 	std::string getType() const;
-
-private:
-
-	std::string _type;
 
 };
 

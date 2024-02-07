@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:41:08 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/28 22:29:57 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:42:31 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	virtual void makeSound() const;
 	virtual std::string getType() const;
 
-private:
+protected:
 
 	std::string _type;
 

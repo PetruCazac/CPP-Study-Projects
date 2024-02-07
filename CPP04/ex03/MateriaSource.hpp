@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 16:24:53 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/05 16:32:28 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/07 11:30:36 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 class MateriaSource : public IMateriaSource {
 private:
-	
+	AMateria* _materia_source[4];
 
 public:
 	MateriaSource();
-	MateriaSource(const AMateria& materia);
-	MateriaSource& operator=(const AMateria& materia);
+	MateriaSource(const MateriaSource& materia);
+	MateriaSource& operator=(const MateriaSource& materia);
 	~MateriaSource();
-	void learnMateria(AMateria*) = 0;
-	AMateria* createMateria(std::string const & type) = 0;
 
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const & type);
 };
 
 #endif
