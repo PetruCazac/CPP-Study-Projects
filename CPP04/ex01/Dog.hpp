@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:49:37 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/07 17:42:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/08 13:46:51 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ public:
 
 private:
 
-	// std::string	_type;
 	Brain*		_dog_brain;
-	
 	void makeSound() const;
 	std::string getType() const;
 };
