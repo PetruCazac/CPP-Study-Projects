@@ -6,14 +6,14 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 12:31:08 by pcazac            #+#    #+#              #
-#    Updated: 2024/01/25 01:39:01 by pcazac           ###   ########.fr        #
+#    Updated: 2024/02/08 13:45:10 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	 	= too_much
 
-CC			= c++
-CPPFLAGS	= -g -Wall -Wextra -Werror -std=c++98
+CXX= c++
+CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
 SRC			= main.cpp Fixed.cpp
 OBJ			= $(SRC:%.cpp=%.o)
@@ -21,16 +21,16 @@ OBJ			= $(SRC:%.cpp=%.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 %.o : %.c
 	@mkdir -p $(@D)
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
-	rm $(OBJ)
+		rm -f $(OBJ)
 
 fclean : clean
-	rm $(NAME)
+		rm -f $(NAME)
 
 re : fclean all
