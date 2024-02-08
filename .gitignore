@@ -37,3 +37,4 @@
 !*.hpp
 !Makefile
 !CPP*
+!ex*
