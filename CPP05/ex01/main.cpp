@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/12 17:40:28 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/12 16:58:01 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int main()
 {
 	Bureaucrat guy1 = Bureaucrat("Dave", 149);
-	Bureaucrat guy4 = Bureaucrat("Buck", 1);
 	try{
 	Bureaucrat guy2 = Bureaucrat("Matt", 151);
 	Bureaucrat guy3 = Bureaucrat("Chip", 0);
+	Bureaucrat guy4 = Bureaucrat("Buck", 1);
 	}
 	catch (std::exception& e){
 		std::cout << "ERROR " << e.what() << std::endl;
