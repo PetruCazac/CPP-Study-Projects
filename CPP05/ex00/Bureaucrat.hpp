@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:30:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/12 07:36:27 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/12 10:51:40 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ private:
 	int			_grade;
 
 public:
-	Bureaucrat();
+	Bureaucrat(std::string name, int i);
 	~Bureaucrat();
 	Bureaucrat(const Bureaucrat& guy);
 	Bureaucrat& operator=(const Bureaucrat& guy);
 	
-	std::ostream& operator<<(const Bureaucrat& guy);
 
 	std::string	getName();
 	int			getGrade();
@@ -36,11 +35,14 @@ public:
 
 	class GradeTooHighException : public std::exception {
 		public:
-			virtual const std::string* what() throw(){};
+			virtual const std::string* what() throw();
 	};
-
-	void GradeTooLowException(int grade);
-
+	class GradeTooLowException : public std::exception {
+		public:
+			virtual const std::string* what() throw();
+	};
 };
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& guy);
 
 #endif
