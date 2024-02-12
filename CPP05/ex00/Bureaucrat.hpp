@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:30:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/09 11:19:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/12 07:36:27 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,11 @@ public:
 	void		incrementGrade();
 	void		decrementGrade();
 
-	class GradeTooHighException(int grade) : public exception {
+	class GradeTooHighException : public std::exception {
 		public:
-			virtual const std::string* what() throw(){
-				if ()
-				return "Grade too high!";
-			}
+			virtual const std::string* what() throw(){};
 	};
-	
+
 	void GradeTooLowException(int grade);
 
 };
