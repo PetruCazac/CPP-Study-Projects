@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:02:29 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 14:43:05 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/13 20:29:14 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), \
+AForm::AForm(std::string name, int sign_grade, int exec_grade) : _name(name), \
 	_if_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
 	if (sign_grade > 150 || exec_grade > 150)
@@ -21,48 +21,55 @@ Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), \
 		throw GradeTooLowException();
 }
 
-Form::~Form(){}
+AForm::~AForm(){}
 
-Form::Form(const Form& sheet) : _name(sheet.getName()), _if_signed(sheet.getIfSigned()), \
+AForm::AForm(const AForm& sheet) : _name(sheet.getName()), _if_signed(sheet.getIfSigned()), \
 	_sign_grade(sheet.getSignedGrade()), _exec_grade(sheet.getExecGrade()){}
 
-Form& Form::operator=(const Form& sheet){
+AForm& AForm::operator=(const AForm& sheet){
 	this->_if_signed = sheet.getIfSigned();
 
 	return *this;
 }
 
-const std::string&	Form::getName() const{
+const std::string&	AForm::getName() const{
 	return _name;
 }
-bool	Form::getIfSigned() const{
+bool	AForm::getIfSigned() const{
 	return _if_signed;
 }
-int		Form::getSignedGrade() const{
+int		AForm::getSignedGrade() const{
 	return _sign_grade;
 }
-int		Form::getExecGrade() const{
+int		AForm::getExecGrade() const{
 	return _exec_grade;
 }
-void	Form::beSigned(Bureaucrat& guy){
+void	AForm::beSigned(Bureaucrat& guy){
 	if (guy.getGrade() <= this->getSignedGrade()){
 		this->_if_signed = true;
 	} else 
 		throw(GradeTooLowException());
 }
 
-const char* Form::GradeTooHighException::what() const throw(){
+const char* AForm::GradeTooHighException::what() const throw(){
 	return "Grade is too high";
 }
-const char* Form::GradeTooLowException::what() const throw(){
+const char* AForm::GradeTooLowException::what() const throw(){
 	return "Grade is too low";
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& sheet){
-	out << "Form name: " << sheet.getName() \
-	<< "\nForm signed: " << sheet.getIfSigned() \
-	<< "\nForm signed grade: " << sheet.getSignedGrade()\
-	<< "\nForm Exec Grade: " << sheet.getExecGrade() << std::endl;
+std::ostream& operator<<(std::ostream& out, const AForm& sheet){
+	out << "AForm name: " << sheet.getName() \
+	<< "\nAForm signed: " << sheet.getIfSigned() \
+	<< "\nAForm signed grade: " << sheet.getSignedGrade()\
+	<< "\nAForm Exec Grade: " << sheet.getExecGrade() << std::endl;
 	return out;
 }
 
+void	AForm::execute(Bureaucrat const & executor) const{
+	if(!this->getIfSigned())
+		std::cout << "We need more documents, NOT ENOUGH SIGNATURES!!!" << std::endl;
+	if(this->getExecGrade() < executor.getGrade())
+		std::cout << "We need more proof, NOT ENOUGH GRADES!!!" << std::endl;
+	return executeForm();
+}

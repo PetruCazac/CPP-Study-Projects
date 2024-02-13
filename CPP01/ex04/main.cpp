@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:02:09 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/31 13:24:19 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/13 18:50:59 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 bool	check_arguments(int argc){
 	if (argc != 4){
 		std::cerr << "Heeeeyyy not the correct number of parameters" << std::endl;
-		std::cerr << "Usage: <filename> <chars to find> <chars to replace>" << std::endl;
+		std::cerr << "Usage: <target> <chars to find> <chars to replace>" << std::endl;
 		return false;
 	}
 	return true;
 }
 
-bool	check_input(std::string filename, std::string to_find, std::string to_replace){
-	if (filename.empty() == true){
+bool	check_input(std::string target, std::string to_find, std::string to_replace){
+	if (target.empty() == true){
 		std::cerr << "Heeeeyyy there is no file" << std::endl;
 		return (false);
 	}
@@ -40,7 +40,7 @@ bool	check_input(std::string filename, std::string to_find, std::string to_repla
 
 int main(int argc, char *argv[]){
 	
-	std::string		filename;
+	std::string		target;
 	std::string		to_find;
 	std::string		to_replace;
 	std::ifstream	file;
@@ -48,16 +48,16 @@ int main(int argc, char *argv[]){
 	
 	if(!check_arguments(argc))
 		return 1;
-	filename = argv[1];
+	target = argv[1];
 	to_find = argv[2];
 	to_replace = argv[3];
-	if (!check_input(filename, to_find, to_replace))
+	if (!check_input(target, to_find, to_replace))
 		return (std::cerr<<"ERROR"<< std::endl, 1);
-	file.open(filename.c_str());
+	file.open(target.c_str());
 	if (!file.is_open())
 		return (std::cerr<<"File could not be read"<< std::endl, 1);
-	const std::string	outfilename = filename + ".replace";
-	outfile.open(outfilename.c_str());
+	const std::string	outtarget = target + ".replace";
+	outfile.open(outtarget.c_str());
 	if(!outfile.is_open())
 		return (std::cerr<<"Out file could not be created"<< std::endl, 1);
 	std::string	content((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));

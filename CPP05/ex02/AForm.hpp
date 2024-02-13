@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 17:40:50 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 14:33:34 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/13 20:36:52 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 
 public:
 
-	Form(std::string name, int sign_grade, int exec_grade);
-	~Form();
-	Form(const Form& sheet);
-	Form& operator=(const Form& sheet);
+	AForm(std::string name, int sign_grade, int exec_grade);
+	virtual ~AForm();
+	AForm(const AForm& sheet);
+	AForm& operator=(const AForm& sheet);
 
-	const std::string&		getName() const;
-	bool					getIfSigned() const;
-	int						getSignedGrade() const;
-	int						getExecGrade() const;
+	virtual const std::string&		getName() const;
+	virtual bool					getIfSigned() const;
+	virtual int						getSignedGrade() const;
+	virtual int						getExecGrade() const;
 
-	void			beSigned(Bureaucrat& guy);
-
+	virtual void			beSigned(Bureaucrat& guy);
+	void					execute(Bureaucrat const & executor) const;
+	virtual void					executeForm() const = 0;
 	class GradeTooHighException : public std::exception {
 		public:
 		const char* what() const throw();
@@ -52,6 +53,6 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& sheet);
+std::ostream& operator<<(std::ostream& out, const AForm& sheet);
 
 #endif

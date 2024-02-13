@@ -6,20 +6,22 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 14:47:22 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/13 17:00:59 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
 	try{
 		Bureaucrat guy1 = Bureaucrat("Dave", 149);
 		Bureaucrat guy4 = Bureaucrat("Buck", 1);
-		Form doc1 = Form("Form 0001", 10, 15);
-	
+		AForm doc1 = AForm("Form 0001", 10, 15);
+		ShrubberyCreationForm bush = ShrubberyCreationForm("Bush");
+
 		guy1.signForm(doc1);
 		std::cout << guy1 << std::endl;
 		std::cout << doc1 << std::endl;
