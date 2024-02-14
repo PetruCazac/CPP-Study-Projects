@@ -6,33 +6,73 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 17:00:59 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/14 15:02:20 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+void testShrubbery(void){
+	ShrubberyCreationForm bush("Bush");
+	Bureaucrat dave1("Dave", 2);
+	Bureaucrat dave2("Matt", 50);
+	Bureaucrat dave3("Butch", 150);
+	
+	std::cout << "======================Shrubbery Test==================\n";
+	dave1.signForm(bush);
+	dave1.executeForm(bush);
+	bush.setSigned(false);
+	
+	dave2.signForm(bush);
+	dave2.executeForm(bush);
+	bush.setSigned(false);
+	
+	dave3.signForm(bush);
+	dave3.executeForm(bush);
+	std::cout << "=================================================================\n\n";
+}
+
+void testRobotomy(void){
+	RobotomyRequestForm bush("Bush Robot");
+	Bureaucrat dave1("Dave", 2);
+	Bureaucrat dave2("Matt", 50);
+	
+	std::cout << "======================Robotomy Test==================\n";
+	dave1.signForm(bush);
+	dave1.executeForm(bush);
+	dave1.executeForm(bush);
+	dave1.executeForm(bush);
+	dave1.executeForm(bush);
+	dave1.executeForm(bush);
+	bush.setSigned(false);
+	
+	dave2.signForm(bush);
+	dave2.executeForm(bush);
+	std::cout << "=================================================================\n\n";
+}
+
+void testPresidentialPardon(void){
+	PresidentialPardonForm bush("Snowden");
+	Bureaucrat pres1("Zapo", 2);
+	Bureaucrat pres2("Zorg", 50);
+	std::cout << "======================Presidential Pardon Test==================\n";
+	pres1.signForm(bush);
+	pres1.executeForm(bush);
+	bush.setSigned(false);
+	
+	pres2.signForm(bush);
+	pres2.executeForm(bush);
+	std::cout << "=================================================================\n\n";
+}
 
 int main()
 {
-	try{
-		Bureaucrat guy1 = Bureaucrat("Dave", 149);
-		Bureaucrat guy4 = Bureaucrat("Buck", 1);
-		AForm doc1 = AForm("Form 0001", 10, 15);
-		ShrubberyCreationForm bush = ShrubberyCreationForm("Bush");
-
-		guy1.signForm(doc1);
-		std::cout << guy1 << std::endl;
-		std::cout << doc1 << std::endl;
-		doc1.beSigned(guy4);
-		guy4.signForm(doc1);
-		guy1.decrementGrade();
-		guy1.decrementGrade();
-		guy4.incrementGrade();
-	}
-	catch (std::exception& e){
-		std::cout << "ERROR: " << e.what() << std::endl;
-	}
+	testShrubbery();
+	testPresidentialPardon();
+	testRobotomy();
 	return 0;
 }

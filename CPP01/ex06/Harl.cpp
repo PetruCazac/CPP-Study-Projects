@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:45:55 by pcazac            #+#    #+#             */
-/*   Updated: 2024/01/31 10:19:05 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/14 15:51:27 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Harl::complain( std::string level ){
 	
 	for (int i = 0; i < 4; i++){
 		if (level.compare(levels[i]) == 0){
-			(this->*functions[i])();
+			w
 			return;
 		}
 	}

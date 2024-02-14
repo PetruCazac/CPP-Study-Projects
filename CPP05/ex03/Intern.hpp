@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 16:01:01 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 10:32:11 by pcazac           ###   ########.fr       */
+/*   Created: 2024/02/14 15:12:19 by pcazac            #+#    #+#             */
+/*   Updated: 2024/02/14 16:11:06 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include <iostream>
-#include <fstream>
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
-class ShrubberyCreationForm : public AForm{
-
+class Intern {
 public:
-	ShrubberyCreationForm(std::string target);
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const ShrubberyCreationForm& form);
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& form);
-
-	void executeForm() const;
-
-private:
-	std::string	_target;
+	Intern();
+	~Intern();
+	Intern(const Intern& kid);
+	Intern& operator=(const Intern& kid);
+	AForm*	makeForm(std::string request, std::string target);
 };
 
 #endif
