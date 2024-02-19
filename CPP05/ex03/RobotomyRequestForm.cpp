@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:19:32 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 14:13:37 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:58:05 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& f
 }
 
 void RobotomyRequestForm::executeForm() const {
-	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-	std::minstd_rand0 generator (seed);
-	int randNumb = generator() % 2;
-	if (randNumb == 1)
+	std::srand(std::time(NULL));
+	if ( std::rand() % 2 == 1)
 		std::cout << "Beep boop! Whirr whirr! Beep beep! " << _target  << " has been Robotomized." << std::endl;
 	else
 		std::cout << "Beep boop! Whirr whirr! Beep beep! " << "FAILURE!" << std::endl;

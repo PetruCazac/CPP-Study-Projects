@@ -6,11 +6,13 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:02:29 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 14:43:05 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:30:56 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+// ================= Constructors =====================//
 
 Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), \
 	_if_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
@@ -20,17 +22,16 @@ Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), \
 	else if (sign_grade < 1 || exec_grade < 1)
 		throw GradeTooLowException();
 }
-
 Form::~Form(){}
-
 Form::Form(const Form& sheet) : _name(sheet.getName()), _if_signed(sheet.getIfSigned()), \
 	_sign_grade(sheet.getSignedGrade()), _exec_grade(sheet.getExecGrade()){}
-
 Form& Form::operator=(const Form& sheet){
-	this->_if_signed = sheet.getIfSigned();
-
+	if(this != &sheet)
+		this->_if_signed = sheet.getIfSigned();
 	return *this;
 }
+
+// ================= Getters =====================//
 
 const std::string&	Form::getName() const{
 	return _name;
@@ -44,12 +45,19 @@ int		Form::getSignedGrade() const{
 int		Form::getExecGrade() const{
 	return _exec_grade;
 }
+
+// ================= Action Functions =====================//
+void	Form::setSigned(bool sign){
+	_if_signed = sign;
+}
 void	Form::beSigned(Bureaucrat& guy){
 	if (guy.getGrade() <= this->getSignedGrade()){
 		this->_if_signed = true;
-	} else 
+	} else
 		throw(GradeTooLowException());
 }
+
+// ================= Exceptions =====================//
 
 const char* Form::GradeTooHighException::what() const throw(){
 	return "Grade is too high";
@@ -57,6 +65,11 @@ const char* Form::GradeTooHighException::what() const throw(){
 const char* Form::GradeTooLowException::what() const throw(){
 	return "Grade is too low";
 }
+const char* Form::FormNotSignedException::what() const throw(){
+	return ("What do you bring me?? There are not enough signatures!");
+}
+
+// ================= Insertion operator =====================//
 
 std::ostream& operator<<(std::ostream& out, const Form& sheet){
 	out << "Form name: " << sheet.getName() \
@@ -65,4 +78,3 @@ std::ostream& operator<<(std::ostream& out, const Form& sheet){
 	<< "\nForm Exec Grade: " << sheet.getExecGrade() << std::endl;
 	return out;
 }
-

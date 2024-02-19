@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/13 14:47:22 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:31:08 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
 		guy1.signForm(doc1);
 		std::cout << guy1 << std::endl;
 		std::cout << doc1 << std::endl;
-		doc1.beSigned(guy4);
 		guy4.signForm(doc1);
 		guy1.decrementGrade();
 		guy1.decrementGrade();

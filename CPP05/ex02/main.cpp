@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 15:02:20 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:59:26 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 #include "RobotomyRequestForm.hpp"
 
 void testShrubbery(void){
+	std::cout << "======================Shrubbery Test==================\n";
 	ShrubberyCreationForm bush("Bush");
 	Bureaucrat dave1("Dave", 2);
 	Bureaucrat dave2("Matt", 50);
 	Bureaucrat dave3("Butch", 150);
-	
-	std::cout << "======================Shrubbery Test==================\n";
 	dave1.signForm(bush);
 	dave1.executeForm(bush);
 	bush.setSigned(false);
@@ -37,29 +36,20 @@ void testShrubbery(void){
 }
 
 void testRobotomy(void){
-	RobotomyRequestForm bush("Bush Robot");
-	Bureaucrat dave1("Dave", 2);
-	Bureaucrat dave2("Matt", 50);
-	
 	std::cout << "======================Robotomy Test==================\n";
-	dave1.signForm(bush);
-	dave1.executeForm(bush);
-	dave1.executeForm(bush);
-	dave1.executeForm(bush);
-	dave1.executeForm(bush);
-	dave1.executeForm(bush);
-	bush.setSigned(false);
-	
-	dave2.signForm(bush);
-	dave2.executeForm(bush);
+	RobotomyRequestForm bush1("Bush Robot 1");
+	Bureaucrat dave1("Dave", 2);
+	dave1.signForm(bush1);
+	dave1.executeForm(bush1);
+	bush1.setSigned(false);
 	std::cout << "=================================================================\n\n";
 }
 
 void testPresidentialPardon(void){
+	std::cout << "======================Presidential Pardon Test==================\n";
 	PresidentialPardonForm bush("Snowden");
 	Bureaucrat pres1("Zapo", 2);
 	Bureaucrat pres2("Zorg", 50);
-	std::cout << "======================Presidential Pardon Test==================\n";
 	pres1.signForm(bush);
 	pres1.executeForm(bush);
 	bush.setSigned(false);
@@ -72,7 +62,7 @@ void testPresidentialPardon(void){
 int main()
 {
 	testShrubbery();
-	testPresidentialPardon();
 	testRobotomy();
+	testPresidentialPardon();
 	return 0;
 }

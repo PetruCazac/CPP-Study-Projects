@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:30:07 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 14:54:13 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 14:13:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::executeForm() const {
 	try{
 		std::fstream file;
-		file.open(_target + "_shrubbery", std::fstream::out);
+		std::string filename = _target + "_shrubbery";
+		const char* name = filename.c_str();
+		file.open(name, std::fstream::out);
 		file << "               ,@@@@@@@,		\n" <<
 				"       ,,,.   ,@@@@@@/@@,  .oo8888o.			\n" << 
 				"    ,&%\\%&%&&%,@@@@@/@@@@@@,8888\\88/8o			\n" <<

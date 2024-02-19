@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:19:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 14:13:10 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:36:21 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
-#include <chrono>
-#include <random>
+#include <ctime>
+#include <cstdlib>
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm{

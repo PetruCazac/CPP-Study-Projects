@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:30:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/14 10:03:55 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:24:00 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ public:
 			const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
+		public:
+			const char* what() const throw();
+	};
+	class FormNotSignedException : public std::exception {
 		public:
 			const char* what() const throw();
 	};
