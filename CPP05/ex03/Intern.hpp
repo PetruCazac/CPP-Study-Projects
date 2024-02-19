@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+w/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
@@ -27,6 +27,7 @@ public:
 	Intern(const Intern& kid);
 	Intern& operator=(const Intern& kid);
 	AForm*	makeForm(std::string request, std::string target);
+private:
 };
 
 #endif

@@ -6,17 +6,18 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 16:13:00 by pcazac            #+#    #+#              #
-#    Updated: 2024/02/14 16:15:19 by pcazac           ###   ########.fr        #
+#    Updated: 2024/02/19 11:46:55 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	 	= ex02
+NAME	 	= ex03
 
 CXX= c++
 CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp Bureaucrat.cpp Intern.cpp AForm.cpp RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp PresidentialPardonForm.cpp 
+SRC			= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
+				ShrubberyCreationForm.cpp PresidentialPardonForm.cpp Intern.cpp
+
 OBJ			= $(SRC:%.cpp=%.o)
 
 all : $(NAME)
