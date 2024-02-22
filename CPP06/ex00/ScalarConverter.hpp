@@ -6,12 +6,15 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:24 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/20 16:44:06 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/22 16:20:52 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
+
+#
+
 
 #include <iostream>
 #include <string>

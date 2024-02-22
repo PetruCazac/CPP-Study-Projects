@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/20 21:02:48 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/22 16:33:09 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 	return *this;
 }
 
-
+// ======== Functions to determine the type ======== //
 	bool	isString(std::string& input) const{
 		
 	}
@@ -39,6 +39,10 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 		
 	}
 
+	std::string get_type(std::string input) const{
+		
+	}
+// ======== Functions to print the type ======== //
 	void	printChar(std::string& input){
 		
 	}
@@ -72,5 +76,9 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 	}
 
 void ScalarConverter::convert(std::string& input){
-	
+	// find the type
+	std::string type;
+	type = get_type();
+	// send the type to be printed
+
 }
