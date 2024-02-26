@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/24 18:28:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/26 16:47:20 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,82 +23,161 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 }
 
 // ======== Functions to determine the type ======== //
-	bool	isString(std::string& input) const{
-		
-	}
-	bool	isInt(std::string& input) const{
-		
-	}
-	bool	isFloat(std::string& input) const{
-		
-	}
-	bool	isDouble(std::string& input) const{
-		
-	}
-	bool	isPseudoliteral(std::string& input) const{
-		
-	}
+bool	isString(std::string& input) {
+	if ( input.size() != 1)
+		return false;
+	else if (std::isalpha(input.c_str()[0]));
+		return(true);
+}
 
-	TYPE	treatInput(std::string input) const{
-		if(isString(input))
-		{
-			std::cout << "The input is a char" << std::endl;
-			return (CHAR);
-		};
-		if(isString(input))
-		{
-			std::cout << "The input is a char" << std::endl;
-			return (CHAR);
-		};
-		if(isString(input))
-		{
-			std::cout << "The input is a char" << std::endl;
-			return (CHAR);
-		};
-		if(isString(input))
-		{
-			std::cout << "The input is a char" << std::endl;
-			return (CHAR);
-		};
-		if(isString(input))
-		{
-			std::cout << "The input is a char" << std::endl;
-			return (CHAR);
-		};
+bool	isInt(std::string& input) {
+	int i = 0;
+	if(input[i] == '+' || input[i] == '-')
+		i++;
+	while(i < input.size()){
+		if(!std::isdigit(input[i]))
+			return false;
+		i++;
+	}
+	long long num = std::atoll(input.c_str());
+	if(num > static_cast<long long>(std::numeric_limits<int>::max()) || num < static_cast<long long>(std::numeric_limits<int>::min()))
+		return false;
+	return true;
+}
 
+bool	isFloat(std::string& input) {
+	int i = 0;
+	bool decimal = false;
+
+	if(input[i] == '+' || input[i] == '-')
+		i++;
+	while(i < input.size()){
+		if((i + 1 == input.size() && input[i] == 'f') || (input[input.size() - 1] == 'f' && i <= 10))
+			break;
+		else if(std::isdigit(input[i]) && i + 1 < input.size() && i <= 10)
+			i++;
+		else if(input[i] == '.' && decimal == false  && i + 3 < input.size() && i <= 10){
+			i++;
+			decimal = true;
+		}
+		else
+			return false;
 	}
-// ======== Functions to print the type ======== //
-	void	convertChar(std::string& input){
-		
+	long double num = std::atoll(input.c_str());
+	if(num > static_cast<long double>(std::numeric_limits<float>::max()) || num < static_cast<long double>(std::numeric_limits<float>::min()))
+		return false;
+	return true;
+}
+
+bool	isDouble(std::string& input) {
+	int i = 0;
+	bool decimal = false;
+
+	if(input[i] == '+' || input[i] == '-')
+		i++;
+	while(i < input.size()){
+		if(std::isdigit(input[i]) && i + 1 < input.size() && i <= 15)
+			i++;
+		else if(input[i] == '.' && decimal == false  && i + 3 < input.size() && i <= 15){
+			i++;
+			decimal = true;
+		}
+		else
+			return false;
 	}
-	void	convertInt(std::string& input){
-		
-	}
-	void	convertFloat(std::string& input){
-		
-	}
-	void	convertDouble(std::string& input){
-		
-	}
-	void	convertPseudoLiteral(std::string& input){
-		
-	}
+	long double num = std::atoll(input.c_str());
+	if(num > static_cast<long double>(std::numeric_limits<double>::max()) || num < static_cast<long double>(std::numeric_limits<double>::min()))
+		return false;
+	return true;
+}
+
+bool	isPseudoliteral(std::string& input) {
+	std::string lit[3] = {"-inff", "+inff", "nanf"};
 	
-	void	printChar(std::string& input){
-		
+	for (int i = 0; i < 3; i++){
+		if (input == lit[i])
+			return (true);
 	}
-	void	printInt(std::string& input){
-		
+	return false;
+}
+bool	isPseudoliteralf(std::string& input) {
+	std::string litf[3] = {"-inf", "+inf", "nan"};
+	
+	for (int i = 0; i < 3; i++){
+		if (input == litf[i])
+			return (true);
 	}
-	void	printFloat(std::string& input){
-		
-	}
-	void	printDouble(std::string& input){
-		
-	}
-	void	printPseudoLiteral(std::string& input){
-		
-	}
+	return false;
+}
+
+TYPE	treatInput(std::string input) {
+	if(isPseudoliteral(input))
+	{
+		std::cout << "The input is a pseudo literal" << std::endl;
+		return (SPECIAL);
+	};
+	if(isPseudoliteralf(input))
+	{
+		std::cout << "The input is a pseudo literal float" << std::endl;
+		return (SPECIALF);
+	};
+	if(isString(input))
+	{
+		std::cout << "The input is a char" << std::endl;
+		return (CHAR);
+	};
+	if(isInt(input))
+	{
+		std::cout << "The input is a int" << std::endl;
+		return (INT);
+	};
+	if(isFloat(input))
+	{
+		std::cout << "The input is a float" << std::endl;
+		return (FLOAT);
+	};
+	if(isDouble(input))
+	{
+		std::cout << "The input is a double" << std::endl;
+		return (DOUBLE);
+	};
+}
+
+// ======== Functions to print the type ======== //
+void	convertChar(std::string& input){
+	
+}
+void	convertInt(std::string& input){
+	
+}
+void	convertFloat(std::string& input){
+	
+}
+void	convertDouble(std::string& input){
+	
+}
+void	convertPseudoLiteral(std::string& input){
+	
+}
+
+void	printChar(std::string& input){
+	
+}
+void	printInt(std::string& input){
+	
+}
+void	printFloat(std::string& input){
+	
+}
+void	printDouble(std::string& input){
+	
+}
+void	printPseudoLiteral(std::string& input){
+	
+}
+void	printPseudoLiteralF(std::string& input){
+	
+}
 
 
 // ======== Main Fiunction ======== //
@@ -121,8 +200,10 @@ void ScalarConverter::convert(std::string& input){
 			printDouble(input);
 		case SPECIAL:
 			printPseudoLiteral(input);
+		case SPECIALF:
+			printPseudoLiteralF(input);
 		default :
-			std::cout << "Error occured,"
-			return;
+			std::cout << "Error occured,";
+			return ;
 	}
 }

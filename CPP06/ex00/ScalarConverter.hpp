@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:24 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/23 13:41:25 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/26 16:46:58 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <limits>
 
 enum TYPE {
 		CHAR,
 		INT,
 		FLOAT,
 		DOUBLE,
-		SPECIAL
+		SPECIAL,
+		SPECIALF
 };
 
 class ScalarConverter {
@@ -29,7 +32,7 @@ class ScalarConverter {
 public:
 
 	static void convert(const std::string& input);
-	
+
 private:
 	ScalarConverter();
 	~ScalarConverter();
