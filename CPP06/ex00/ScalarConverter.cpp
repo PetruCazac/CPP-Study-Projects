@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/26 16:47:20 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/26 17:12:00 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ bool	isInt(std::string& input) {
 		i++;
 	}
 	long long num = std::atoll(input.c_str());
-	if(num > static_cast<long long>(std::numeric_limits<int>::max()) || num < static_cast<long long>(std::numeric_limits<int>::min()))
+	if(num > static_cast<long long>(std::numeric_limits<int>::max()) || \
+		num < static_cast<long long>(std::numeric_limits<int>::min()))
 		return false;
 	return true;
 }
@@ -52,7 +53,7 @@ bool	isFloat(std::string& input) {
 	if(input[i] == '+' || input[i] == '-')
 		i++;
 	while(i < input.size()){
-		if((i + 1 == input.size() && input[i] == 'f') || (input[input.size() - 1] == 'f' && i <= 10))
+		if((i + 1 == input.size() && input[i] == 'f' && i <= 10))
 			break;
 		else if(std::isdigit(input[i]) && i + 1 < input.size() && i <= 10)
 			i++;
@@ -64,7 +65,8 @@ bool	isFloat(std::string& input) {
 			return false;
 	}
 	long double num = std::atoll(input.c_str());
-	if(num > static_cast<long double>(std::numeric_limits<float>::max()) || num < static_cast<long double>(std::numeric_limits<float>::min()))
+	if(num > static_cast<long double>(std::numeric_limits<float>::max()) || \
+		num < static_cast<long double>(std::numeric_limits<float>::min()))
 		return false;
 	return true;
 }
@@ -86,7 +88,8 @@ bool	isDouble(std::string& input) {
 			return false;
 	}
 	long double num = std::atoll(input.c_str());
-	if(num > static_cast<long double>(std::numeric_limits<double>::max()) || num < static_cast<long double>(std::numeric_limits<double>::min()))
+	if(num > static_cast<long double>(std::numeric_limits<double>::max()) || \
+		num < static_cast<long double>(std::numeric_limits<double>::min()))
 		return false;
 	return true;
 }
@@ -100,6 +103,7 @@ bool	isPseudoliteral(std::string& input) {
 	}
 	return false;
 }
+
 bool	isPseudoliteralf(std::string& input) {
 	std::string litf[3] = {"-inf", "+inf", "nan"};
 	
@@ -161,9 +165,19 @@ void	convertPseudoLiteral(std::string& input){
 }
 
 void	printChar(std::string& input){
-	
+	char ch = input[0];
+	std::cout << "char: " << ch << std::endl;
+	int i = static_cast<int>(ch);
+	std::cout << "int: " << i << std::endl;
+	float f = static_cast<float>(ch);
+	std::cout << "float: " << f << "f" << std::endl;
+	float d = static_cast<double>(ch);
+	std::cout << "double: " << d << std::endl;
+	return ;
 }
 void	printInt(std::string& input){
+	std::istringstream iss;
+	iss << input;
 	
 }
 void	printFloat(std::string& input){
