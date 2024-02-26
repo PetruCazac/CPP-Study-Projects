@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/22 16:33:09 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/24 18:28:33 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,51 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 		
 	}
 
-	std::string get_type(std::string input) const{
-		
+	TYPE	treatInput(std::string input) const{
+		if(isString(input))
+		{
+			std::cout << "The input is a char" << std::endl;
+			return (CHAR);
+		};
+		if(isString(input))
+		{
+			std::cout << "The input is a char" << std::endl;
+			return (CHAR);
+		};
+		if(isString(input))
+		{
+			std::cout << "The input is a char" << std::endl;
+			return (CHAR);
+		};
+		if(isString(input))
+		{
+			std::cout << "The input is a char" << std::endl;
+			return (CHAR);
+		};
+		if(isString(input))
+		{
+			std::cout << "The input is a char" << std::endl;
+			return (CHAR);
+		};
+
 	}
 // ======== Functions to print the type ======== //
+	void	convertChar(std::string& input){
+		
+	}
+	void	convertInt(std::string& input){
+		
+	}
+	void	convertFloat(std::string& input){
+		
+	}
+	void	convertDouble(std::string& input){
+		
+	}
+	void	convertPseudoLiteral(std::string& input){
+		
+	}
+	
 	void	printChar(std::string& input){
 		
 	}
@@ -59,26 +100,29 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 		
 	}
 
-	void	convertChar(std::string& input){
-		
-	}
-	void	convertInt(std::string& input){
-		
-	}
-	void	convertFloat(std::string& input){
-		
-	}
-	void	convertDouble(std::string& input){
-		
-	}
-	void	convertPseudoLiteral(std::string& input){
-		
-	}
 
+// ======== Main Fiunction ======== //
 void ScalarConverter::convert(std::string& input){
-	// find the type
-	std::string type;
-	type = get_type();
-	// send the type to be printed
+	TYPE	type;
 
+	if(!input.size()){
+		std::cout << "Error: argument not found\n" << std::endl;
+		return;
+	}
+	type = treatInput(input);
+	switch (type) {
+		case CHAR:
+			printChar(input);
+		case INT:
+			printInt(input);
+		case FLOAT:
+			printFloat(input);
+		case DOUBLE:
+			printDouble(input);
+		case SPECIAL:
+			printPseudoLiteral(input);
+		default :
+			std::cout << "Error occured,"
+			return;
+	}
 }
