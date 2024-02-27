@@ -5,6 +5,19 @@
        
             "configurations": [
                 {
+                    "name": "CPP06 ex00",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "program": "/Users/pcazac/Documents/11.CPP/CPP06/ex00/ex00",
+                    "args": [],
+                    "stopAtEntry": false,
+                    "cwd": "/Users/pcazac/Documents/11.CPP/CPP06/ex00",
+                    "environment": [],
+                    "externalConsole": false,
+                    "MIMode": "lldb"
+                }
+
+                {
                     "name": "ex02 CPP05",
                     "type": "cppdbg",
                     "request": "launch",

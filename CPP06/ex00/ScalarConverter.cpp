@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/27 07:22:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/27 15:45:43 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter){
 }
 
 // ======== Functions to determine the type ======== //
-bool	isString(std::string& input) {
-	if ( input.size() != 1)
+bool	isChar(std::string& input) {
+	if ( input.length() != 1)
 		return false;
-	else if (std::isalpha(input.c_str()[0]));
+	else if (std::isprint(input.c_str()[0]))
 		return(true);
+	return (false);
 }
 
 bool	isInt(std::string& input) {
-	int i = 0;
+	unsigned long i = 0;
 	if(input[i] == '+' || input[i] == '-')
 		i++;
-	while(i < input.size()){
+	while(i < input.length()){
 		if(!std::isdigit(input[i]))
 			return false;
 		i++;
@@ -47,17 +48,17 @@ bool	isInt(std::string& input) {
 }
 
 bool	isFloat(std::string& input) {
-	int i = 0;
+	unsigned long i = 0;
 	bool decimal = false;
 
 	if(input[i] == '+' || input[i] == '-')
 		i++;
-	while(i < input.size()){
-		if((i + 1 == input.size() && input[i] == 'f' && i <= 10))
+	while(i < input.length()){
+		if((i + 1 == input.length() && input[i] == 'f' && i <= 10))
 			break;
-		else if(std::isdigit(input[i]) && i + 1 < input.size() && i <= 10)
+		else if(std::isdigit(input[i]) && i + 1 < input.length() && i <= 10)
 			i++;
-		else if(input[i] == '.' && decimal == false  && i + 3 < input.size() && i <= 10){
+		else if(input[i] == '.' && decimal == false  && i + 3 < input.length() && i <= 10){
 			i++;
 			decimal = true;
 		}
@@ -68,25 +69,26 @@ bool	isFloat(std::string& input) {
 }
 
 bool	isDouble(std::string& input) {
-	int i = 0;
+	unsigned long i = 0;
 	bool decimal = false;
-
+	if (input.length() > 19) {
+		return false;
+	}
 	if(input[i] == '+' || input[i] == '-')
 		i++;
-	while(i < input.size()){
-		if(std::isdigit(input[i]) && i + 1 < input.size() && i <= 15)
+	while(i < input.length()){
+		if(std::isdigit(input[i]))
 			i++;
-		else if(input[i] == '.' && decimal == false  && i + 3 < input.size() && i <= 15){
+		else if(input[i] == '.' && !decimal && i + 3 < input.length() && i < 18){
 			i++;
 			decimal = true;
-		}
-		else
+		} else
 			return false;
 	}
 	return true;
 }
 
-bool	isPseudoliteral(std::string& input) {
+bool	isPseudoliteralf(std::string& input) {
 	std::string lit[3] = {"-inff", "+inff", "nanf"};
 	
 	for (int i = 0; i < 3; i++){
@@ -96,7 +98,7 @@ bool	isPseudoliteral(std::string& input) {
 	return false;
 }
 
-bool	isPseudoliteralf(std::string& input) {
+bool	isPseudoliteral(std::string& input) {
 	std::string litf[3] = {"-inf", "+inf", "nan"};
 	
 	for (int i = 0; i < 3; i++){
@@ -117,7 +119,7 @@ TYPE	treatInput(std::string input) {
 		std::cout << "The input is a pseudo literal float" << std::endl;
 		return (SPECIALF);
 	};
-	if(isString(input))
+	if(isChar(input))
 	{
 		std::cout << "The input is a char" << std::endl;
 		return (CHAR);
@@ -137,107 +139,165 @@ TYPE	treatInput(std::string input) {
 		std::cout << "The input is a double" << std::endl;
 		return (DOUBLE);
 	};
+	return(ERR);
 }
 
 // ======== Functions to print the type ======== //
 
-void	printChar(std::string& input){
+void	printChar(const std::string& input){
 	char ch = input[0];
-	std::cout << "char: " << ch << std::endl;
+	std::cout << "char:   " << ch << std::endl;
 	int i = static_cast<int>(ch);
-	std::cout << "int: " << i << std::endl;
+	std::cout << "int:    " << i << std::endl;
 	float f = static_cast<float>(ch);
-	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float:  " << f << "f\n";
 	float d = static_cast<double>(ch);
-	std::cout << "double: " << d << std::endl;
+	std::cout << "double: " << d << "\n" << std::endl;
 	return ;
 }
-void	printInt(std::string& input){
-	int i = std::atol(input.c_str());
+
+void	printInt(const std::string& input){
+	std::istringstream iss(input);
+	int i;
+	iss >> i;
 	float f = static_cast<float>(i);
 	double d = static_cast<double>(i);
 	if(std::isprint(i)){
 		char ch = static_cast<char>(i);
-		std::cout << "char: " << ch << std::endl;
+		std::cout << "char:   " << ch << std::endl;
 	}else
-		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+		std::cout << "char:   impossible" << std::endl;
+	std::cout << "int:    " << i << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float:  " << f << "f\n";
+	std::cout << "double: " << d << "\n" << std::endl;
 	return ;
 }
-void	printFloat(std::string& input){
-	float f =static_cast<double>(std::atof(input.c_str()));
-	float i = static_cast<int>(f);
+void	printFloat(const std::string& input){
+	std::string 		str = input;
+	str.erase(input.length() - 1);
+	std::istringstream	iss(str);
+	int					precision = str.length() - 1 - str.find('.');
+	float				f;
+	iss >> f;
 	double d = static_cast<double>(f);
-	if(std::isprint(i)){
-		char ch = static_cast<char>(i);
-		std::cout << "char: " << ch << std::endl;
+	if(std::isprint(f)){
+		char ch = static_cast<char>(f);
+		std::cout << "char:   " << ch << std::endl;
 	}else
-		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "char:   impossible" << std::endl;
+		
+	if(f > static_cast<double>(std::numeric_limits<int>::max()) || \
+		f < static_cast<double>(std::numeric_limits<int>::min()))
+		std::cout << "int:    impossible" << std::endl;
+	else{
+		int i = static_cast<int>(f);
+		std::cout << "int:    " << i << std::endl;
+	}
+	std::cout << std::setprecision(precision);
+	std::cout << "float:  " << f << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
+	std::cout << std::setprecision(6);
 	return ;
 }
-void	printDouble(std::string& input){
-	double d = std::atof(input.c_str());
-	float i = static_cast<int>(d);
+
+void	printDouble(const std::string& input){
+	std::istringstream	iss(input);
+	double				d;
+	int					precision = input.length() - 1 - input.find('.');
+	iss >> d;
+	if(std::isprint(d)){
+		char ch = static_cast<char>(d);
+		std::cout << "char:   " << ch << std::endl;
+	}else
+		std::cout << "char:   impossible" << std::endl;
+
+	if(d > static_cast<double>(std::numeric_limits<int>::max()) || \
+		d < static_cast<double>(std::numeric_limits<int>::min()))
+		std::cout << "int:    impossible" << std::endl;
+	else{
+		int i = static_cast<int>(d);
+		std::cout << "int:    " << i << std::endl;
+	}
+
+	std::cout << std::setprecision(precision);
+	if(d > static_cast<double>(std::numeric_limits<float>::max()) || \
+		d < static_cast<double>(std::numeric_limits<float>::min()))
+		std::cout << "float:  impossible" << std::endl;
+	else{
+		float f = static_cast<float>(d);
+		std::cout << "float:  " << f << "f" << std::endl;
+	}
+	std::cout << "double: " << d << std::endl;
+	std::cout << std::setprecision(6);
+	return ;
+}
+
+void	printPseudoLiteral(const std::string& input){
+	double d;
+	std::istringstream iss(input);
+	iss >> d;
 	float f = static_cast<float>(d);
-	if(std::isprint(i)){
-		char ch = static_cast<char>(i);
-		std::cout << "char: " << ch << std::endl;
-	}else
-		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "char:   impossible" << std::endl;
+	std::cout << "int:    impossible" << std::endl;
+	std::cout  << std::fixed;
+	std::cout << "float:  " << std::showpoint << f << "f" << std::endl;
+	std::cout << "double: " << std::showpoint << d << std::endl;
 	return ;
 }
-void	printPseudoLiteral(std::string& input){
-	double d = std::atof(input.c_str());
-	float i = static_cast<int>(d);
-	float f = static_cast<float>(d);
-	if(std::isprint(i)){
-		char ch = static_cast<char>(i);
-		std::cout << "char: " << ch << std::endl;
-	}else
-		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
+void	printPseudoLiteralF(const std::string& input){
+	std::string 		str = input;
+	str.erase(input.length() - 1);
+	std::istringstream	iss(str);
+	float f;
+	iss >> f;
+	double d = static_cast<double>(f);
+	std::cout << "char:   impossible" << std::endl;
+	std::cout << "int:    impossible" << std::endl;
+	std::cout << std::fixed;
+	std::cout << "float:  " << f << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 	return ;
-	
-}
-void	printPseudoLiteralF(std::string& input){
-	
 }
 
 
 // ======== Main Fiunction ======== //
-void ScalarConverter::convert(std::string& input){
+void ScalarConverter::convert(const std::string& input){
 	TYPE	type;
 
-	if(!input.size()){
+	if(!input.length()){
 		std::cout << "Error: argument not found\n" << std::endl;
 		return;
 	}
 	type = treatInput(input);
+	if(type ==  ERR){
+		std::cout << "Invalid input" << std::endl;
+		return ;
+	}
 	switch (type) {
 		case CHAR:
 			printChar(input);
+			return ;
 		case INT:
 			printInt(input);
+			return ;
 		case FLOAT:
 			printFloat(input);
+			return ;
 		case DOUBLE:
 			printDouble(input);
+			return ;
 		case SPECIAL:
 			printPseudoLiteral(input);
+			return ;
+			// printDouble(input);
 		case SPECIALF:
 			printPseudoLiteralF(input);
+			return ;
+			// printFloat(input);
 		default :
-			std::cout << "Error occured,";
+			std::cout << "Error occured\n";
 			return ;
 	}
 }

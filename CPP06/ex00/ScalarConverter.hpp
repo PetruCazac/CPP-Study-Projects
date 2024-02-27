@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:24 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/26 17:46:26 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/27 11:28:46 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <cstdlib>
 #include <cctype>
 #include <limits>
+#include <iomanip>
 
 enum TYPE {
 		CHAR,
@@ -26,7 +27,8 @@ enum TYPE {
 		FLOAT,
 		DOUBLE,
 		SPECIAL,
-		SPECIALF
+		SPECIALF,
+		ERR
 };
 
 class ScalarConverter {
