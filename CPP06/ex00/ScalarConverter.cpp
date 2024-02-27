@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:26 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/26 17:12:00 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/27 07:22:33 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ bool	isInt(std::string& input) {
 			return false;
 		i++;
 	}
-	long long num = std::atoll(input.c_str());
-	if(num > static_cast<long long>(std::numeric_limits<int>::max()) || \
-		num < static_cast<long long>(std::numeric_limits<int>::min()))
+	long num = std::atol(input.c_str());
+	if(num > static_cast<long>(std::numeric_limits<int>::max()) || \
+		num < static_cast<long>(std::numeric_limits<int>::min()))
 		return false;
 	return true;
 }
@@ -64,10 +64,6 @@ bool	isFloat(std::string& input) {
 		else
 			return false;
 	}
-	long double num = std::atoll(input.c_str());
-	if(num > static_cast<long double>(std::numeric_limits<float>::max()) || \
-		num < static_cast<long double>(std::numeric_limits<float>::min()))
-		return false;
 	return true;
 }
 
@@ -87,10 +83,6 @@ bool	isDouble(std::string& input) {
 		else
 			return false;
 	}
-	long double num = std::atoll(input.c_str());
-	if(num > static_cast<long double>(std::numeric_limits<double>::max()) || \
-		num < static_cast<long double>(std::numeric_limits<double>::min()))
-		return false;
 	return true;
 }
 
@@ -148,21 +140,6 @@ TYPE	treatInput(std::string input) {
 }
 
 // ======== Functions to print the type ======== //
-void	convertChar(std::string& input){
-	
-}
-void	convertInt(std::string& input){
-	
-}
-void	convertFloat(std::string& input){
-	
-}
-void	convertDouble(std::string& input){
-	
-}
-void	convertPseudoLiteral(std::string& input){
-	
-}
 
 void	printChar(std::string& input){
 	char ch = input[0];
@@ -176,17 +153,60 @@ void	printChar(std::string& input){
 	return ;
 }
 void	printInt(std::string& input){
-	std::istringstream iss;
-	iss << input;
-	
+	int i = std::atol(input.c_str());
+	float f = static_cast<float>(i);
+	double d = static_cast<double>(i);
+	if(std::isprint(i)){
+		char ch = static_cast<char>(i);
+		std::cout << "char: " << ch << std::endl;
+	}else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
+	return ;
 }
 void	printFloat(std::string& input){
-	
+	float f =static_cast<double>(std::atof(input.c_str()));
+	float i = static_cast<int>(f);
+	double d = static_cast<double>(f);
+	if(std::isprint(i)){
+		char ch = static_cast<char>(i);
+		std::cout << "char: " << ch << std::endl;
+	}else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
+	return ;
 }
 void	printDouble(std::string& input){
-	
+	double d = std::atof(input.c_str());
+	float i = static_cast<int>(d);
+	float f = static_cast<float>(d);
+	if(std::isprint(i)){
+		char ch = static_cast<char>(i);
+		std::cout << "char: " << ch << std::endl;
+	}else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
+	return ;
 }
 void	printPseudoLiteral(std::string& input){
+	double d = std::atof(input.c_str());
+	float i = static_cast<int>(d);
+	float f = static_cast<float>(d);
+	if(std::isprint(i)){
+		char ch = static_cast<char>(i);
+		std::cout << "char: " << ch << std::endl;
+	}else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
+	return ;
 	
 }
 void	printPseudoLiteralF(std::string& input){

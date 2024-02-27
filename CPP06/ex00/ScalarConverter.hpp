@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:42:24 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/26 17:11:51 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/02/26 17:46:26 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
 #include <cctype>
 #include <limits>
 
