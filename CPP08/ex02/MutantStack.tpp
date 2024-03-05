@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MUTANTSTACK_TPP
+#define MUTANTSTACK_TPP
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin(){
+	return MutantStack<T>::c.begin();
+}
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end(){
+	return MutantStack<T>::c.end();
+}
+
+#endif
