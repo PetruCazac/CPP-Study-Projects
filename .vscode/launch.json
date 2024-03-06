@@ -5,6 +5,30 @@
        
             "configurations": [
                 {
+                    "name": "btc",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "program": "/home/pcazac/Documents/Programming/11.CPP/CPP09/ex00/btc",
+                    "args": ["input.txt"],
+                    "stopAtEntry": false,
+                    "cwd": "/home/pcazac/Documents/Programming/11.CPP/CPP09/ex00",
+                    "environment": [],
+                    "externalConsole": false,
+                    "MIMode": "gdb",
+                    "setupCommands": [
+                        {
+                            "description": "Enable pretty-printing for gdb",
+                            "text": "-enable-pretty-printing",
+                            "ignoreFailures": true
+                        },
+                        {
+                            "description": "Set Disassembly Flavor to Intel",
+                            "text": "-gdb-set disassembly-flavor intel",
+                            "ignoreFailures": true
+                        }
+                    ]
+                }
+                {
                     "name": "CPP06 ex00",
                     "type": "cppdbg",
                     "request": "launch",
