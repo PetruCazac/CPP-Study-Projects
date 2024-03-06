@@ -118,59 +118,140 @@ void BitcoinExchange::removeSpace(std::string& line){
 	}
 }
 
+// void BitcoinExchange::parseInput(std::string& line, btc& b){
+// 	std::stringstream	ss;
+// 	bool				point = false;
+
+// 	for(std::string::iterator it = line.begin(); it < line.end(); it++){
+// 		while(std::isdigit(*it)){
+// 			ss << *it;
+// 			++it;
+// 		}
+// 		ss >> b.year;
+// 		ss.clear();
+// 		ss.str("");
+// 		if(*it == '-')
+// 			it++;
+// 		else
+// 			throw(WrongSymbols());
+// 		while(std::isdigit(*it)){
+// 			ss << *it;
+// 			++it;
+// 		}
+// 		ss >> b.month;
+// 		ss.clear();
+// 		ss.str("");
+// 		if(*it == '-')
+// 			it++;
+// 		else
+// 			throw(WrongSymbols());
+// 		while(std::isdigit(*it)){
+// 			ss << *it;
+// 			++it;
+// 		}
+// 		ss >> b.day;
+// 		ss.clear();
+// 		ss.str("");
+// 		if(*it == '|')
+// 			it++;
+// 		else
+// 			throw(WrongSymbols());
+// 		while(std::isdigit(*it) || (*it == '.' && !point)){
+// 			ss << *it;
+// 			if(*it == '.' && !point)
+// 				point = true;
+// 			++it;
+// 		}
+// 		ss >> b.value;
+// 		ss.clear();
+// 		ss.str("");
+// 		checkDate(b);
+// 		checkValue(b);
+// 		std::cout << b.year;
+// 		std::cout << "-" << std::setw(2) << std::setfill('0') << b.month;
+// 		std::cout << "-" << std::setw(2) << std::setfill('0') << b.day;
+// 		std::cout << " => " << b.value;
+// 		std::cout << " = " << b.value * findPrice(b) << std::endl;
+// 	}
+// }
+
 void BitcoinExchange::parseInput(std::string& line, btc& b){
 	std::stringstream	ss;
 	bool				point = false;
+	std::string::iterator it = line.begin();
 
-	for(std::string::iterator it = line.begin(); it < line.end(); it++){
-		while(std::isdigit(*it)){
+	for(int i = 0; i < 4; i++){
+		if(std::isdigit(*it)){
 			ss << *it;
-			++it;
-		}
-		ss >> b.year;
-		ss.clear();
-		ss.str("");
-		if(*it == '-')
-			it++;
+			++it;}
 		else
-			throw(WrongSymbols());
-		while(std::isdigit(*it)){
+			throw(NotAValidDate());
+	}
+	ss >> b.year;
+	ss.clear();
+	ss.str("");
+	if(*it == '-')
+		it++;
+	else
+		throw(WrongSymbols());
+	for(int i = 0; i < 2; i++){
+		if(std::isdigit(*it)){
 			ss << *it;
-			++it;
-		}
-		ss >> b.month;
-		ss.clear();
-		ss.str("");
-		if(*it == '-')
-			it++;
+			++it;}
 		else
-			throw(WrongSymbols());
-		while(std::isdigit(*it)){
+			throw(NotAValidDate());
+	}
+	ss >> b.month;
+	ss.clear();
+	ss.str("");
+	if(*it == '-')
+		it++;
+	else
+		throw(WrongSymbols());
+	for(int i = 0; i < 2; i++){
+		if(std::isdigit(*it)){
 			ss << *it;
-			++it;
-		}
-		ss >> b.day;
-		ss.clear();
-		ss.str("");
-		if(*it == '|')
-			it++;
+			++it;}
 		else
-			throw(WrongSymbols());
-		while(std::isdigit(*it) || (*it == '.' && !point)){
+			throw(NotAValidDate());
+	}
+	ss >> b.day;
+	ss.clear();
+	ss.str("");
+	checkDate(b);
+	if(*it == '|')
+		it++;
+	else
+		throw(WrongSymbols());
+	if(*it == '-')
+		throw(NotAPositiveNumber());
+	while(it < line.end()){
+		if(std::isdigit(*it) || (*it == '.' && !point)){
 			ss << *it;
 			if(*it == '.' && !point)
 				point = true;
 			++it;
 		}
-		ss >> b.value;
-		ss.clear();
-		ss.str("");
-		checkDate(b);
-		checkValue(b);
-		std::cout << b.year << "-" << b.month << "-" << b.day << " => " << b.value;
-		std::cout << " = " << b.value * findPrice(b) << std::endl;
-		// _btcData.push_back(b);
+		else
+			throw(NotAValidValue());
 	}
+	ss >> b.value;
+	ss.clear();
+	ss.str("");
+	checkValue(b);
+	printValue(b);
+}
+
+
+	/*Helper Functions*/
+
+
+void	BitcoinExchange::printValue(btc& b){
+	std::cout << b.year;
+	std::cout << "-" << std::setw(2) << std::setfill('0') << b.month;
+	std::cout << "-" << std::setw(2) << std::setfill('0') << b.day;
+	std::cout << " => " << b.value;
+	std::cout << " = " << b.value * findPrice(b) << std::endl;
 }
 
 float BitcoinExchange::findPrice(btc& request){

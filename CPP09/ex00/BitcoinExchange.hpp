@@ -2,6 +2,7 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <cstdio>
@@ -41,6 +42,7 @@ public:
 	void	checkValue(btc& b);
 	bool	charLine(std::string& line);
 	void	removeSpace(std::string& line);
+	void	printValue(btc& b);
 
 	/*Exceptions*/
 	class NotAPositiveNumber : public std::exception {
@@ -56,6 +58,11 @@ public:
 	class NotAValidDate : public std::exception {
 		const char* what() const throw(){
 			return "ERROR: date is not valid";
+		};
+	};
+	class NotAValidValue : public std::exception {
+		const char* what() const throw(){
+			return "ERROR: value is not valid";
 		};
 	};
 	class NotAValidLine : public std::exception {
