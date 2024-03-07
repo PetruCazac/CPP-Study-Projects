@@ -4,7 +4,7 @@ int main(int argc, char** argv) {
 	BitcoinExchange bit;
 
 	if (argc != 2){
-		std::cerr << "ERROR: Not enough arguments" << std::endl;
+		std::cerr << "ERROR: Bad arguments" << std::endl;
 		return 1;
 	}
 	if(!std::strlen(argv[1])){
