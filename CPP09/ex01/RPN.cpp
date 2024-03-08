@@ -15,19 +15,17 @@ RPN& RPN::operator=(const RPN& r){
 	/*Class functions*/
 
 void RPN::startCalculator(std::string input){
-	try {
-		for(std::string::iterator it = input.begin(); it < input.end(); it++){
-			if(!this->parse(*it)){
-				calculateResult(*it);
-				it++;
-			}
+	for(std::string::iterator it = input.begin(); it < input.end(); it++){
+		if(!this->parse(*it)){
+			calculateResult(*it);
+			it++;
 		}
-	} catch (std::exception& e){
-		std::cerr << e.what() << std::endl;}
+	}
 	if(_s.size() == 1)
-		std::cout << "Result: " << _s.top() << std::endl;
+		std::cout <<  _s.top() << std::endl;
+		// std::cout << "Result: " << _s.top() << std::endl;
 	else
-		std::cout << "Wrong input of arguments" << std::endl;
+		throw(WrongArgumentConstruction());
 }
 
 bool RPN::parse(char c){

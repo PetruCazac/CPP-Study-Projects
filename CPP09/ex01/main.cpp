@@ -11,6 +11,10 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 	RPN mem;
+	try {
 	mem.startCalculator(argv[1]);
+	} catch (std::exception& e){
+		std::cerr << e.what() << std::endl;
+		return 1;}
 	return 0;
 }
