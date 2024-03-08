@@ -18,7 +18,6 @@ void RPN::startCalculator(std::string input){
 	for(std::string::iterator it = input.begin(); it < input.end(); it++){
 		if(!this->parse(*it)){
 			calculateResult(*it);
-			it++;
 		}
 	}
 	if(_s.size() == 1)
