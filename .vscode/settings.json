@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"Makefile": "makefile",
+		"*.tpp": "cpp",
 		"string": "cpp",
 		"iosfwd": "cpp",
 		"__bit_reference": "cpp",
@@ -73,7 +74,8 @@
 		"numbers": "cpp",
 		"cinttypes": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"list": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 	"editor.insertSpaces": false

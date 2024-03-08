@@ -75,6 +75,11 @@ public:
 			return "ERROR: line has wrong delimitation symbols";
 		};
 	};
+	class WrongDateException : public std::exception {
+		const char* what() const throw(){
+			return "";
+		};
+	};
 };
 
 #endif
