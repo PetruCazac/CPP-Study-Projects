@@ -5,6 +5,18 @@
        
             "configurations": [
                 {
+                    "name": "PmergeMe iOS",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "program": "/Users/pcazac/Documents/11.CPP/CPP09/ex02/PmergeMe",
+                    "args": [1 2 3 4 5 6 7 8 9],
+                    "stopAtEntry": false,
+                    "cwd": "/Users/pcazac/Documents/11.CPP/CPP09",
+                    "environment": [],
+                    "externalConsole": false,
+                    "MIMode": "lldb"
+                }
+                {
                     "name": "RPN MacOS",
                     "type": "cppdbg",
                     "request": "launch",
