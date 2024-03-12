@@ -35,6 +35,14 @@ int main(int argc, char** argv) {
 			}
 		}
 	}
+	// Check if sorted!!!!!!!!!!!
+
+
+
+	// Check if sorted!!!!!!!!!!!
+
+
+	
 	std::cout << "Before: ";
 	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++)
 		std::cout << *it << " ";

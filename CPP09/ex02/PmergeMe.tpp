@@ -17,8 +17,20 @@ void PmergeMe::sortCont(T& numbers, C& pairs){
 		}
 		it++;
 	}
-	// Sort the numbers in eah pair
-	recursiveSort(pairs);
+	// Sort the numbers in eah pair and sort recursively the pairs
+	typename T::iterator it = pairs.begin();
+	typename T::iterator end = pairs.end();
+	while(it < end){
+		if(it->first < it->second && it->first > 0)
+		{
+			int temp = it->first;
+			it->first = it->second;
+			it->second = temp;
+		}
+		it++;
+	}
+	mergeSort(pairs, pairs.begin(), pairs.end());
+
 	// Separate the numbers in 2 containers of the same type and generate a Jacobsthal sequence
 	separateAndInsert(pairs);
 	// Take each number from the sequence index and perform a binary searcha and
@@ -34,6 +46,21 @@ void separateAndInsert(T& pairs){
 
 }
 
+
+template <typename T, typename beginT, typename endT>
+void PmergeMe::mergeSort(T& pairs, beginT begin, endT end){
+	if(begin >= end)
+		return;
+	typename T::iterator middle = begin + (end - begin) / 2;
+	mergeSort(pairs, begin, middle);
+	mergeSort(pairs, middle + 1, end);
+	merge(pairs, begin, middle, end);
+}
+
+template <typename T, typename beginT, typename middleT, typename endT>
+void PmergeMe::merge(T& pairs, beginT begin, middleT middle, endT end){
+
+}
 
 template <typename T>
 void PmergeMe::findInsert(T& numb){

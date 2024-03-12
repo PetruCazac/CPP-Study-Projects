@@ -33,8 +33,10 @@ public:
 	// Helper Functions
 	void generateJacobsthal();
 
-	template <typename T>
-	void recursiveSort(T& pairs);
+	template <typename T, typename beginT, typename endT>
+	void mergeSort(T& pairs, beginT begin, endT end);
+	template <typename T, typename beginT, typename middleT, typename endT>
+	void merge(T& pairs, beginT begin, middleT middle, endT end);
 
 	template <typename T>
 	void separateAndInsert(T& pairs);
