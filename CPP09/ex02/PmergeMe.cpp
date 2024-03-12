@@ -15,6 +15,9 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& p){
 
 	/*Sorting Algorithm*/
 
-void PmergeMe::sort(typename T){
-
+void PmergeMe::sort(){
+	std::vector<std::pair<int, int> > pairsV;
+	sortCont(_elementsV, pairsV);
+	std::deque<std::pair<int, int> > pairsD;
+	sortCont(_elementsD, pairsD);
 }

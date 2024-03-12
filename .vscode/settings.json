@@ -75,7 +75,8 @@
 		"cinttypes": "cpp",
 		"fstream": "cpp",
 		"stack": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"filesystem": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 	"editor.insertSpaces": false

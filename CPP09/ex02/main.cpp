@@ -36,13 +36,10 @@ int main(int argc, char** argv) {
 		}
 	}
 	std::cout << "Before: ";
-	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++){
+	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	PmergeMe p(elements);
-	// Put the numbers in the first structure and implement the merge and sort algorithm
-	p.sortVector();
-	// Put the numbers in the second structure and implement the merge and sort algorithm
-	p.sortDeque();
+	p.sort();
 	return 0;
 }
