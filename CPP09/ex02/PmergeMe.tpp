@@ -5,75 +5,90 @@
 
 template <typename T, typename C>
 void PmergeMe::sortCont(T& numbers, C& pairs){
-	gettimeofday(_startT, NULL);
-	// Pair the numbers, take care of the last one.
+	gettimeofday(&_startT, NULL);
 	typename T::const_iterator it = numbers.begin();
 	typename T::const_iterator end = numbers.end();
 	while(it < end){
 		if(it < end - 1){
-			pairs.push_back(make_pair(*it, *(++it)));
-		} else {
-			pairs.push_back(make_pair(-1, *(it)));
-		}
+			pairs.push_back(std::make_pair(*it, *(++it)));
+		} else
+			_remainder = *it;
 		it++;
 	}
-	// Sort the numbers in eah pair and sort recursively the pairs
-	typename T::iterator it = pairs.begin();
-	typename T::iterator end = pairs.end();
-	while(it < end){
-		if(it->first < it->second && it->first > 0)
+	typename C::iterator ip = pairs.begin();
+	typename C::iterator endp = pairs.end();
+	while(ip < endp){
+		if(ip->first < ip->second)
 		{
-			int temp = it->first;
-			it->first = it->second;
-			it->second = temp;
+			int temp = ip->first;
+			ip->first = ip->second;
+			ip->second = temp;
 		}
-		it++;
+		ip++;
 	}
-	mergeSort(pairs, pairs.begin(), pairs.end());
-
-	// Separate the numbers in 2 containers of the same type and generate a Jacobsthal sequence
-	separateAndInsert(pairs);
-	// Take each number from the sequence index and perform a binary searcha and
-	// insert in the right position
-
-	
-	gettimeofday(_endT, NULL);
-	printResults();
+	mergeSort(pairs);
+	separateAndInsert(pairs, numbers);
+	printResults(numbers, numbers.size());
 }
 
-template <typename T>
-void separateAndInsert(T& pairs){
-
-}
-
-
-template <typename T, typename beginT, typename endT>
-void PmergeMe::mergeSort(T& pairs, beginT begin, endT end){
-	if(begin >= end)
+template <typename C>
+void PmergeMe::mergeSort(C& pairs){
+	if(pairs.size() == 1)
 		return;
-	typename T::iterator middle = begin + (end - begin) / 2;
-	mergeSort(pairs, begin, middle);
-	mergeSort(pairs, middle + 1, end);
-	merge(pairs, begin, middle, end);
+	size_t middle = pairs.size() / 2;
+	C left(pairs.begin(), pairs.begin() + middle);
+	C right(pairs.begin() + middle , pairs.end());
+	mergeSort(left);
+	mergeSort(right);
+
+	std::merge(left.begin(), left.end(), right.begin(), right.end(), pairs.begin());
 }
 
-template <typename T, typename beginT, typename middleT, typename endT>
-void PmergeMe::merge(T& pairs, beginT begin, middleT middle, endT end){
+template <typename C, typename T>
+void PmergeMe::separateAndInsert(C& pairs, T& numbers){
+	T	firstChain(pairs.size());
+	T	secondChain(pairs.size());
 
+	static_cast<void>(numbers);
+	typename T::iterator itF = firstChain.begin();
+	typename T::iterator itS = secondChain.begin();
+	for(typename C::iterator it = pairs.begin(); it < pairs.end(); it++){
+		*itF++ = it->first;
+		*itS++ = it->second;
+	}
+	if(_remainder >= 0)
+		secondChain.push_back(_remainder);
+	findInsert(firstChain, secondChain);
 }
 
 template <typename T>
-void PmergeMe::findInsert(T& numb){
-	// Effectuate a binary search to determine the index of insertion
-	// Take the number and insert it
-
-	// Insert all the precedent numbers that were skipped and insert.
-	
+void PmergeMe::findInsert(T& firstChain, T& secondChain){
+	resetConsts();
+	size_t i = 0;
+	typename T::iterator it = firstChain.begin();
+	firstChain.insert(it, secondChain[0]);
+	while(_jacob[1] < secondChain.size()){
+		generateJacobsthal();
+		if(secondChain.size() >= _jacob[1])
+			i = _jacob[1] - 1;
+		else
+			i = secondChain.size() - 1;
+		while(i >= _jacob[0]){
+			it = std::upper_bound(firstChain.begin(), firstChain.end(), secondChain[i]);
+			firstChain.insert(it, secondChain[i]);
+			i--;
+		}
+	}
+	printContainer(firstChain);
 }
 
 template <typename T>
-void printResults(T& c){
-	
+void PmergeMe::printContainer(T& c){
+	_output << "After:  ";
+	for( typename T::iterator it = c.begin(); it < c.end(); it++){
+		_output << *it << " ";
+	}
+	_output << std::endl;
 }
 
-#endif PMERGEME_TPP
+#endif

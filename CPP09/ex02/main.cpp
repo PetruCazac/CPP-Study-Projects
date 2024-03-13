@@ -1,5 +1,13 @@
 #include "PmergeMe.hpp"
 
+bool	checkSorted(std::vector<int> elements){
+	for(std::vector<int>::iterator it = elements.begin(); it < elements.end() - 1; it++){
+		if(*it > *(it + 1))
+			return false;
+	}
+	return true;
+}
+
 int main(int argc, char** argv) {
 	// Check if there are arguments and that the arguments are all numbers and parse the elements;
 	if(argc <= 1){
@@ -16,6 +24,7 @@ int main(int argc, char** argv) {
 		int l = std::strlen(argv[i]);
 		for (int j = 0; j < l; j++){
 			if (!std::isdigit(argv[i][j])){
+				std::cout << argv[i][j] << std::endl;
 				std::cout << "ERROR: Wrong characters found." << std::endl;
 				return 1;
 			}
@@ -28,21 +37,17 @@ int main(int argc, char** argv) {
 	}
 	// Check that the numbers are not doubled
 	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++){
-		for(std::vector<int>::iterator jt = it++; jt < elements.end(); jt++){
+		for(std::vector<int>::iterator jt = (it + 1); jt < elements.end(); jt++){
 			if(*it == *jt){
-				std::cout << "ERROR: The arguments are doubled" << std::endl;
+				std::cout << "ERROR: The arguments are double" << std::endl;
 				return 1;
 			}
 		}
 	}
-	// Check if sorted!!!!!!!!!!!
-
-
-
-	// Check if sorted!!!!!!!!!!!
-
-
-	
+	if(checkSorted(elements)){
+		std::cout << "The arguments are already sorted." << std::endl;
+		return 0;
+	}
 	std::cout << "Before: ";
 	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++)
 		std::cout << *it << " ";

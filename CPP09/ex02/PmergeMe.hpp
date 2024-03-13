@@ -5,48 +5,53 @@
 #include <utility>
 #include <string>
 #include <cstdlib>
+#include <cstring>
 #include <cctype>
 #include <sstream>
 #include <vector>
 #include <deque>
 #include <sys/time.h>
+#include <algorithm>
 
 class PmergeMe {
 private:
-	int					_jakob[3];
+	size_t				_jacob[2];
+	std::stringstream	_output;
+	std::stringstream	_result;
 	std::vector<int>	_elementsV;
 	std::deque<int>		_elementsD;
-	struct timeval*		_startT;
-	struct timeval*		_endT;
+	struct timeval		_startT;
+	int					_remainder;
 
 public:
 	PmergeMe(std::vector<int> elements);
 	~PmergeMe();
 	PmergeMe(const PmergeMe& p);
 	PmergeMe& operator=(const PmergeMe& p);
-	
+
 	// Sorting algorithm
 	void sort();
 	template <typename T, typename C>
 	void sortCont(T& numbers, C& pairs);
 
 	// Helper Functions
-	void generateJacobsthal();
+	void generateJacobsthal(void);
+	void resetConsts(void);
 
-	template <typename T, typename beginT, typename endT>
-	void mergeSort(T& pairs, beginT begin, endT end);
-	template <typename T, typename beginT, typename middleT, typename endT>
-	void merge(T& pairs, beginT begin, middleT middle, endT end);
+	template <typename C>
+	void mergeSort(C& pairs);
+
+	template <typename C, typename T>
+	void separateAndInsert(C& pairs, T& elements);
 
 	template <typename T>
-	void separateAndInsert(T& pairs);
+	void findInsert(T& firstChain, T& secondChain);
 
 	template <typename T>
-	void findInsert(T& numbers);
-	
-	template <typename T>
-	void printResults(T& c);
+	void printContainer(T& c);
 
+	void printResults(const std::vector<int>& , int i);
+	void printResults(const std::deque<int>& , int i);
 
 };
 
