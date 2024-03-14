@@ -12,6 +12,7 @@
 #include <deque>
 #include <sys/time.h>
 #include <algorithm>
+#include <ctime>
 
 class PmergeMe {
 private:
@@ -20,17 +21,18 @@ private:
 	std::stringstream	_result;
 	std::vector<int>	_elementsV;
 	std::deque<int>		_elementsD;
-	struct timeval		_startT;
+	std::clock_t		_startT;
+	std::clock_t		_endT;
 	int					_remainder;
 
 public:
-	PmergeMe(std::vector<int> elements);
+	PmergeMe();
 	~PmergeMe();
 	PmergeMe(const PmergeMe& p);
 	PmergeMe& operator=(const PmergeMe& p);
 
 	// Sorting algorithm
-	void sort();
+	void sort(std::vector<int> elements);
 	template <typename T, typename C>
 	void sortCont(T& numbers, C& pairs);
 

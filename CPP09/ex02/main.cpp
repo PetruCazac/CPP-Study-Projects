@@ -34,16 +34,14 @@ int main(int argc, char** argv) {
 		ss >> str;
 		ss.clear();
 		elements.push_back(std::atoi(str.c_str()));
-	}
-	// Check that the numbers are not doubled
-	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++){
-		for(std::vector<int>::iterator jt = (it + 1); jt < elements.end(); jt++){
-			if(*it == *jt){
+		for(std::vector<int>::iterator it = elements.begin(); it < elements.end() - 1; it++){
+			if(*it == elements.back()){
 				std::cout << "ERROR: The arguments are double" << std::endl;
-				return 1;
-			}
+			return 1;
+		}
 		}
 	}
+	// Check that the numbers are not doubled
 	if(checkSorted(elements)){
 		std::cout << "The arguments are already sorted." << std::endl;
 		return 0;
@@ -52,7 +50,7 @@ int main(int argc, char** argv) {
 	for(std::vector<int>::iterator it = elements.begin(); it < elements.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
-	PmergeMe p(elements);
-	p.sort();
+	PmergeMe p;
+	p.sort(elements);
 	return 0;
 }

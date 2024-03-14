@@ -5,7 +5,6 @@
 
 template <typename T, typename C>
 void PmergeMe::sortCont(T& numbers, C& pairs){
-	gettimeofday(&_startT, NULL);
 	typename T::const_iterator it = numbers.begin();
 	typename T::const_iterator end = numbers.end();
 	while(it < end){
@@ -59,6 +58,8 @@ void PmergeMe::separateAndInsert(C& pairs, T& numbers){
 	if(_remainder >= 0)
 		secondChain.push_back(_remainder);
 	findInsert(firstChain, secondChain);
+	_endT = std::clock();
+	printContainer(firstChain);
 }
 
 template <typename T>
@@ -79,7 +80,6 @@ void PmergeMe::findInsert(T& firstChain, T& secondChain){
 			i--;
 		}
 	}
-	printContainer(firstChain);
 }
 
 template <typename T>
