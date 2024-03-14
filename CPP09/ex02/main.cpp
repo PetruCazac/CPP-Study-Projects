@@ -24,7 +24,6 @@ int main(int argc, char** argv) {
 		int l = std::strlen(argv[i]);
 		for (int j = 0; j < l; j++){
 			if (!std::isdigit(argv[i][j])){
-				std::cout << argv[i][j] << std::endl;
 				std::cout << "ERROR: Wrong characters found." << std::endl;
 				return 1;
 			}
