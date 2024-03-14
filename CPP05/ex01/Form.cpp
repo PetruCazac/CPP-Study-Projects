@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:02:29 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/19 16:30:56 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:47:17 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		Form::getExecGrade() const{
 }
 
 // ================= Action Functions =====================//
+
 void	Form::setSigned(bool sign){
 	_if_signed = sign;
 }
@@ -72,9 +73,9 @@ const char* Form::FormNotSignedException::what() const throw(){
 // ================= Insertion operator =====================//
 
 std::ostream& operator<<(std::ostream& out, const Form& sheet){
-	out << "Form name: " << sheet.getName() \
-	<< "\nForm signed: " << sheet.getIfSigned() \
-	<< "\nForm signed grade: " << sheet.getSignedGrade()\
-	<< "\nForm Exec Grade: " << sheet.getExecGrade() << std::endl;
+	out <<   "Form name         : " << sheet.getName() \
+		<< "\nForm signed       : " << sheet.getIfSigned() \
+		<< "\nForm signed grade : " << sheet.getSignedGrade()\
+		<< "\nForm Exec Grade   : " << sheet.getExecGrade() << std::endl;
 	return out;
 }

@@ -6,7 +6,7 @@
 #    By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 16:13:00 by pcazac            #+#    #+#              #
-#    Updated: 2024/02/12 17:38:50 by pcazac           ###   ########.fr        #
+#    Updated: 2024/03/14 19:51:56 by pcazac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
-
+	rm -f $(OBJ)
 %.o : %.c
 	@mkdir -p $(@D)
 	$(CXX) $(CXXFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:00:15 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/19 16:24:07 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:40:52 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& guy){
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& guy){
 	this->_grade = guy._grade;
-	this->_name = guy._name;
 	return *this;
 }
 
