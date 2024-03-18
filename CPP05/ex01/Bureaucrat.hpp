@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:30:46 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/19 16:24:00 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:40:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Form;
 
 class Bureaucrat {
 private:
-	std::string _name;
+	const std::string _name;
 	int			_grade;
 
 public:
