@@ -6,11 +6,11 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:34:15 by pcazac            #+#    #+#             */
-/*   Updated: 2024/03/01 15:56:50 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/18 14:34:47 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "MutantStack.hpp"
+#include "MutantStack.hpp"
 
 // int main()
 // {
@@ -38,7 +38,8 @@
 // 	return 0;
 // }
 
-// Test Main 
+
+// Test Main
 
 #include <list>
 #include <iostream>
@@ -46,16 +47,16 @@
 int main()
 {
 	std::list<int> mstack;
-	mstack.push_front(5);
-	mstack.push_front(17);
-	std::cout << mstack.front() << std::endl;
-	mstack.pop_front();
+	mstack.push_back(5);
+	mstack.push_back(17);
+	std::cout << mstack.back() << std::endl;
+	mstack.pop_back();
 	std::cout << mstack.size() << std::endl;
-	mstack.push_front(3);
-	mstack.push_front(5);
-	mstack.push_front(737);
+	mstack.push_back(3);
+	mstack.push_back(5);
+	mstack.push_back(737);
 	//[...]
-	mstack.push_front(0);
+	mstack.push_back(0);
 	std::list<int>::iterator it = mstack.begin();
 	std::list<int>::iterator ite = mstack.end();
 	++it;

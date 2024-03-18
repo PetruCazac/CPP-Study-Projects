@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/27 18:51:33 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/18 14:58:11 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int main()
 	std::cout << std::endl;
 	std::cout << "Checking the class reference." << std::endl;
 	identify(*base);
+	delete base;
 	return 0;
 }

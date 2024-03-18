@@ -42,6 +42,7 @@ bool BitcoinExchange::extractData(){
 		if(charLine(line))
 			continue;
 		populateList(line);
+		line.clear();
 	}
 	return true;
 }
@@ -80,9 +81,9 @@ void	BitcoinExchange::populateList(std::string& line){
 			++it;
 		}
 		ss >> b.value;
+		_btcData.push_back(b);
 		ss.clear();
 		ss.str("");
-		_btcData.push_back(b);
 	}
 }
 
@@ -118,72 +119,6 @@ void BitcoinExchange::removeSpace(std::string& line){
 	}
 }
 
-// void BitcoinExchange::parseInput(std::string& line, btc& b){
-// 	std::stringstream	ss;
-// 	bool				point = false;
-// 	std::string::iterator it = line.begin();
-
-// 	for(int i = 0; i < 4; i++){
-// 		if(std::isdigit(*it)){
-// 			ss << *it;
-// 			++it;}
-// 		else
-// 			throw(NotAValidDate());
-// 	}
-// 	ss >> b.year;
-// 	ss.clear();
-// 	ss.str("");
-// 	if(*it == '-')
-// 		it++;
-// 	else
-// 		throw(WrongSymbols());
-// 	for(int i = 0; i < 2; i++){
-// 		if(std::isdigit(*it)){
-// 			ss << *it;
-// 			++it;}
-// 		else
-// 			throw(NotAValidDate());
-// 	}
-// 	ss >> b.month;
-// 	ss.clear();
-// 	ss.str("");
-// 	if(*it == '-')
-// 		it++;
-// 	else
-// 		throw(WrongSymbols());
-// 	for(int i = 0; i < 2; i++){
-// 		if(std::isdigit(*it)){
-// 			ss << *it;
-// 			++it;}
-// 		else
-// 			throw(NotAValidDate());
-// 	}
-// 	ss >> b.day;
-// 	ss.clear();
-// 	ss.str("");
-// 	checkDate(b);
-// 	if(*it == '|')
-// 		it++;
-// 	else
-// 		throw(WrongSymbols());
-// 	if(*it == '-')
-// 		throw(NotAPositiveNumber());
-// 	while(it < line.end()){
-// 		if(std::isdigit(*it) || (*it == '.' && !point)){
-// 			ss << *it;
-// 			if(*it == '.' && !point)
-// 				point = true;
-// 			++it;
-// 		}
-// 		else
-// 			throw(NotAValidValue());
-// 	}
-// 	ss >> b.value;
-// 	ss.clear();
-// 	ss.str("");
-// 	checkValue(b);
-// 	printValue(b);
-// }
 
 void BitcoinExchange::parseInput(std::string& line, btc& b){
 	std::stringstream	ss;
