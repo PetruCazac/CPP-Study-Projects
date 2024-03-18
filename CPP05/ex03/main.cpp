@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:18:34 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/19 15:59:37 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/15 13:21:39 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void testIntern(void){
 	Bureaucrat	pres1("Chad", 2);
 	std::cout << "======================Intern Test==================\n";
-	Intern		kid = Intern();
+	Intern		kid;
 
 	AForm* some_form = kid.makeForm("shrubbery creation", "Bush");
 	pres1.signForm(*some_form);
@@ -30,11 +30,11 @@ void testIntern(void){
 	pres1.signForm(*some_form1);
 	pres1.executeForm(*some_form1);
 	delete some_form1;
-	AForm* some_form2 = kid.makeForm("presidential pardon", "Regan");
+	AForm* some_form2 = kid.makeForm("presidential pardon", "Reagan");
 	pres1.signForm(*some_form2);
 	pres1.executeForm(*some_form2);
 	delete some_form2;
-	std::cout << "=================================================================\n\n";
+	std::cout << "=================================================================\n";
 }
 
 int main()

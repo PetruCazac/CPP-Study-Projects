@@ -6,7 +6,7 @@
 /*   By: pcazac <pcazac@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:12:19 by pcazac            #+#    #+#             */
-/*   Updated: 2024/02/19 12:01:22 by pcazac           ###   ########.fr       */
+/*   Updated: 2024/03/15 13:15:02 by pcazac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ public:
 	~Intern();
 	Intern(const Intern& kid);
 	Intern& operator=(const Intern& kid);
-	AForm*	makeForm(std::string request, std::string target);
+	AForm*	makeForm(const std::string& request, const std::string& target);
+	AForm*	makeShrubberyCreationForm(const std::string& str);
+	AForm*	makeRobotomyRequestForm(const std::string& str);
+	AForm*	makePresidentialPardonForm(const std::string& str);
 private:
+	AForm*	(Intern::*formFunc[3])(const std::string&);
 };
 
 #endif
